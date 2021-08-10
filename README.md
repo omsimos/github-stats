@@ -1,5 +1,5 @@
 # GitHub Stats Generator
-> Try it out! https://gh-stats-generator.vercel.app/
+> Try it out! https://gh-stats-gen.vercel.app/
 
 > Based on https://github.com/anuraghazra/github-readme-stats
 
