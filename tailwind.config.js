@@ -2,7 +2,11 @@ module.exports = {
   purge: ["./index.html", "./src/**/*.tsx"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        dlg: { max: "1024px" },
+      },
+    },
   },
   variants: {
     extend: {},

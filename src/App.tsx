@@ -26,7 +26,7 @@ const App: React.FC = () => {
   return (
     <div className='h-screen bg-gray-900 font-mono text-gray-200 flex flex-col items-center'>
       <div className='text-center'>
-        <h1 className='text-4xl font-bold mt-16'>GitHub README Stats Generator</h1>
+        <h1 className='text-4xl dlg:text-2xl font-bold mt-16'>GitHub README Stats Generator</h1>
         <a
           className='text-green-400'
           href='https://github.com/anuraghazra/github-readme-stats'
@@ -36,7 +36,7 @@ const App: React.FC = () => {
           <i>based on anuraghazra's repo</i>
         </a>
       </div>
-      <div className='text-xl grid grid-cols-2 my-8 gap-4'>
+      <div className='text-xl dlg:text-base grid grid-cols-2 dlg:grid-cols-1 mt-8 gap-4'>
         <div className='choices'>
           <label>username</label>
           <input
@@ -80,10 +80,10 @@ const App: React.FC = () => {
           </select>
         </div>
 
-        <div className='col-span-2 text-center'>
+        <div className='col-span-2 dlg:col-span-1 text-center'>
           <button
             onClick={() => copyToClipboard()}
-            className='bg-gray-800 h-10 w-full text-lg px-4 rounded-lg shadow-lg transition duration-300 hover:bg-gray-700 focus:ring focus:ring-gray-700'
+            className='bg-gray-800 h-10 w-full text-lg dlg:text-sm px-4 rounded-lg shadow-lg transition duration-300 hover:bg-gray-700 focus:ring focus:ring-gray-700'
           >
             Copy to Clipboard
           </button>
@@ -93,7 +93,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <div>
+      <div className='dlg:hidden'>
         <AnimatePresence>
           {username ? (
             <img className='outline-none shadow-lg' src={ghStats()} alt='github stats' />
@@ -103,9 +103,13 @@ const App: React.FC = () => {
         </AnimatePresence>
       </div>
 
-      <footer className='flex justify-between px-40 w-full absolute bottom-0 py-8 bg-green-900'>
+      <div className='hidden dlg:block text-green-400'>
+        <p>Not Available for Mobile! 😭</p>
+      </div>
+
+      <footer className='flex dlg:flex-col justify-between px-32 dlg:px-4 dlg:items-center dlg:bg-transparent w-full absolute bottom-0 py-8 bg-green-900 dlg:text-sm'>
         <p>© Josh Daniel Bañares 2021 • All Rights Reserved</p>
-        <div>
+        <div className='dlg:mt-3'>
           <a
             className='mr-16 link'
             href='https://github.com/joshxfi/gh-stats-generator'
