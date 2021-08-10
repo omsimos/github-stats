@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input {
+    @apply mb-2 bg-gray-700 outline-none px-4 h-10 rounded-lg shadow-lg;
+  }
+
+  .choices {
+    @apply flex flex-col mr-8 mt-4 w-full;
+  }
+}
