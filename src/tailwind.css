@@ -10,4 +10,8 @@
   .choices {
     @apply flex flex-col mr-8 mt-4 w-full;
   }
+
+  .link {
+    @apply hover:text-gray-400 transition duration-300
+  }
 }

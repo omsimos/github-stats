@@ -14,16 +14,27 @@ const App: React.FC = () => {
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(`![${username}\'s Stats](${ghStats()})`);
-    setCopied(true);
+    if (username) {
+      navigator.clipboard.writeText(`![${username}\'s Stats](${ghStats()})`);
+      setCopied(true);
 
-    setTimeout(() => setCopied(false), 4000);
+      setTimeout(() => setCopied(false), 4000);
+    }
+    return;
   };
 
   return (
     <div className='h-screen bg-gray-900 font-mono text-gray-200 flex flex-col items-center'>
-      <div>
+      <div className='text-center'>
         <h1 className='text-4xl font-bold mt-16'>GitHub README Stats Generator</h1>
+        <a
+          className='text-green-400'
+          href='https://github.com/anuraghazra/github-readme-stats'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <i>based on anuraghazra's repo</i>
+        </a>
       </div>
       <div className='text-xl grid grid-cols-2 my-8 gap-4'>
         <div className='choices'>
@@ -83,12 +94,39 @@ const App: React.FC = () => {
       </div>
 
       <div>
-        {username ? (
-          <img className='outline-none shadow-lg' src={ghStats()} alt='github stats' />
-        ) : (
-          <h1 className='text-2xl text-green-400'>input your username!</h1>
-        )}
+        <AnimatePresence>
+          {username ? (
+            <img className='outline-none shadow-lg' src={ghStats()} alt='github stats' />
+          ) : (
+            <motion.h1 className='text-2xl text-green-400'>input your username!</motion.h1>
+          )}
+        </AnimatePresence>
       </div>
+
+      <footer className='flex justify-between px-40 w-full absolute bottom-0 py-8 bg-green-900'>
+        <p>© Josh Daniel Bañares 2021 • All Rights Reserved</p>
+        <div>
+          <a
+            className='mr-16 link'
+            href='https://github.com/joshxfi/gh-stats-generator'
+            target='_blank'
+            rel='noreferrer'
+          >
+            GitHub
+          </a>
+          <a
+            className='mr-16 link'
+            href='https://github.com/anuraghazra/github-readme-stats'
+            target='_blank'
+            rel='noreferrer'
+          >
+            Generator
+          </a>
+          <a className='link' href='https://xfi.vercel.app' target='_blank' rel='noreferrer'>
+            Portfolio
+          </a>
+        </div>
+      </footer>
     </div>
   );
 };
