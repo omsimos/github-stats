@@ -16,7 +16,6 @@ export const ThemeOption: React.FC<ThemeOptionProps> = ({ theme, setTheme }) => 
         <option value='merko'>Merko</option>
         <option value='gruvbox'>Gruvbox</option>
         <option value='tokyonight'>Tokyo Night</option>
-
         <option value='onedark'>One Dark</option>
         <option value='cobalt'>Cobalt</option>
         <option value='synthwave'>Synthwave</option>
