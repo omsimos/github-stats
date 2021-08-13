@@ -17,7 +17,7 @@ interface OptionsProps {
 
 export const Options: React.FC<OptionsProps> = props => {
   return (
-    <div className='text-xl dlg:text-base grid grid-cols-2 dlg:grid-cols-1 mt-8 gap-4'>
+    <div className='text-xl grid grid-cols-2 mt-8 gap-4 dmd:hidden'>
       <div className='choices'>
         <label>username</label>
         <input
@@ -51,10 +51,10 @@ export const Options: React.FC<OptionsProps> = props => {
         </select>
       </div>
 
-      <div className='col-span-2 dlg:col-span-1 text-center'>
+      <div className='col-span-2  text-center'>
         <button
           onClick={() => props.copyToClipboard()}
-          className='bg-gray-800 h-10 w-full text-lg dlg:text-sm px-4 rounded-lg shadow-lg transition duration-300 hover:bg-gray-700 focus:ring ring-gray-600 ring-offset-4 ring-offset-gray-900'
+          className='bg-gray-800 h-10 w-full text-lg rounded-lg shadow-lg transition duration-300 hover:bg-gray-700 focus:ring ring-gray-600 ring-offset-4 ring-offset-gray-900'
         >
           Copy to Clipboard
         </button>

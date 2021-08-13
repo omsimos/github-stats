@@ -4,11 +4,11 @@
 
 @layer components {
   .input {
-    @apply mb-2 bg-gray-700 outline-none px-4 h-10 dlg:h-8 rounded-lg shadow-lg;
+    @apply mb-2 bg-gray-700 outline-none px-4 h-10 rounded-lg shadow-lg;
   }
 
   .choices {
-    @apply flex flex-col mr-8 dlg:mr-0 mt-4 dlg:mt-2 w-full;
+    @apply flex flex-col mr-8 mt-4 w-full;
   }
 
   .link {

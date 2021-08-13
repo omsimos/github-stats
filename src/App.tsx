@@ -51,7 +51,7 @@ const App: React.FC = () => {
         )}
       </div>
 
-      <div className='hidden dlg:block text-green-400'>
+      <div className='hidden dmd:block my-auto text-xl text-green-400'>
         <p>Not Available for Mobile! 😭</p>
       </div>
 
