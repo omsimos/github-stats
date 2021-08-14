@@ -1,11 +1,6 @@
 import React from "react";
 import { themeValue, themeName } from "../data/themeData";
 
-interface ThemeOptionProps {
-  theme: string;
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
-}
-
 export const ThemeOption: React.FC<ThemeOptionProps> = ({ theme, setTheme }) => {
   return (
     <div className='choices'>

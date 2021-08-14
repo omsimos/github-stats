@@ -2,19 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ThemeOption } from "./ThemeOption";
 
-interface OptionsProps {
-  username: string;
-  theme: string;
-  countPrivate: string;
-  border: string;
-  copied: boolean;
-  copyToClipboard: () => void;
-  setUsername: React.Dispatch<React.SetStateAction<string>>;
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
-  setCountPrivate: React.Dispatch<React.SetStateAction<string>>;
-  setBorder: React.Dispatch<React.SetStateAction<string>>;
-}
-
 export const Options: React.FC<OptionsProps> = props => {
   return (
     <div className='text-xl grid grid-cols-2 mt-8 gap-4 dmd:hidden'>
