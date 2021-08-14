@@ -15,3 +15,18 @@
     @apply hover:text-gray-400 transition duration-300
   }
 }
+
+
+::-webkit-scrollbar-track {
+  background-color: #111827;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  background-color: #111827;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #28B369;
+  border-radius: 8px;
+}
