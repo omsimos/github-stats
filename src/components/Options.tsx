@@ -4,7 +4,7 @@ import { ThemeOption } from "./ThemeOption";
 
 export const Options: React.FC<OptionsProps> = props => {
   return (
-    <div className='text-xl grid grid-cols-2 mt-8 gap-4 dmd:hidden'>
+    <div className='text-xl grid grid-cols-2 gap-4 dmd:hidden'>
       <div className='choices'>
         <label>username</label>
         <input
@@ -32,7 +32,11 @@ export const Options: React.FC<OptionsProps> = props => {
 
       <div className='choices'>
         <label>border</label>
-        <select className='input appearance-none' onChange={e => props.setBorder(e.target.value)} value={props.border}>
+        <select
+          className='input appearance-none'
+          onChange={e => props.setBorder(e.target.value)}
+          value={props.border}
+        >
           <option value='true'>Hide Border</option>
           <option value='false'>Show Border</option>
         </select>
@@ -45,8 +49,13 @@ export const Options: React.FC<OptionsProps> = props => {
         >
           Copy to Clipboard
         </button>
-        <motion.p className='mt-4 text-base' initial={{ opacity: 0 }} animate={{ opacity: props.copied ? 1 : 0 }}>
-          📋 copied to clipboard! paste it on the repo: {props.username}/{props.username}
+        <motion.p
+          className='mt-4 text-base'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: props.copied ? 1 : 0 }}
+        >
+          📋 copied to clipboard! paste it on the repo: {props.username}/
+          {props.username}
         </motion.p>
       </div>
     </div>

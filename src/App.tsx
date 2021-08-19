@@ -10,9 +10,14 @@ const App: React.FC = () => {
   const [border, setBorder] = useState<string>("true");
   const [countPrivate, setCountPrivate] = useState<string>("false");
   const [copied, setCopied] = useState<boolean>(false);
+  const [compact, setCompact] = useState<string>("compact");
 
   const ghStats = () => {
     return `https://github-readme-stats.vercel.app/api?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&count_private=${countPrivate}`;
+  };
+
+  const ghTopLangs = () => {
+    return `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&layout=${compact}`;
   };
 
   const copyToClipboard = () => {
@@ -31,24 +36,40 @@ const App: React.FC = () => {
     countPrivate,
     border,
     copied,
+    compact,
     copyToClipboard,
     setUsername,
     setTheme,
     setCountPrivate,
     setBorder,
+    setCompact,
   };
 
   return (
     <div className='h-screen bg-gray-900 font-mono text-gray-200 flex flex-col items-center'>
       <Header />
-      <Options {...optionsProps} />
 
-      <div className='dlg:hidden mt-4'>
-        {username ? (
-          <img className='outline-none shadow-lg' src={ghStats()} alt='github stats' />
-        ) : (
-          <h1 className='text-2xl text-green-400'>input your username...</h1>
-        )}
+      <div className='flex justify-between w-10/12 mt-8'>
+        <Options {...optionsProps} />
+
+        <div className='dlg:hidden mt-6'>
+          {username ? (
+            <div className='flex flex-col items-center gap-4'>
+              <img
+                className='outline-none shadow-lg'
+                src={ghStats()}
+                alt='github stats'
+              />
+              <img
+                className='outline-none shadow-lg'
+                src={ghTopLangs()}
+                alt='github top languages'
+              />
+            </div>
+          ) : (
+            <h1 className='text-2xl text-green-400'>input your username...</h1>
+          )}
+        </div>
       </div>
 
       <div className='hidden dmd:block my-auto text-xl text-green-400'>
