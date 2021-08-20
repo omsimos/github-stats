@@ -1,14 +1,17 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useOptions } from '../../context/OptionsContext'
 
-export const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.FC = () => {
+  const { copyStats, copyLangs, copied, username } = useOptions()
+
   return (
     <div className="col-span-2  text-center">
-      <button onClick={() => props.copyStats()} className="btn">
+      <button onClick={() => copyStats()} className="btn">
         Copy to clipboard - [stats 💪]
       </button>
 
-      <button onClick={() => props.copyLangs()} className="btn">
+      <button onClick={() => copyLangs()} className="btn">
         Copy to clipboard - [top languages 🐲]
       </button>
 
@@ -25,10 +28,9 @@ export const Button: React.FC<ButtonProps> = (props) => {
       <motion.p
         className="text-base"
         initial={{ opacity: 0 }}
-        animate={{ opacity: props.copied ? 1 : 0 }}
+        animate={{ opacity: copied ? 1 : 0 }}
       >
-        📋 copied to clipboard! paste it on the repo: {props.username}/
-        {props.username}
+        📋 copied to clipboard! paste it on the repo: {username}/{username}
       </motion.p>
     </div>
   )

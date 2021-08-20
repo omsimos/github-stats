@@ -13,6 +13,8 @@ interface OptionsProps {
   setBorder: React.Dispatch<React.SetStateAction<string>>
   setCompact: React.Dispatch<React.SetStateAction<string>>
 }
+
+interface Value extends OptionsProps {}
 interface ChoicesProps {
   value: string
   setValue: React.Dispatch<React.SetStateAction<string>>

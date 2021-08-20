@@ -1,6 +1,8 @@
 import React from 'react'
+import { useOptions } from '../../context/OptionsContext'
 
-export const Username: React.FC<UsernameProps> = (props) => {
+export const Username: React.FC = () => {
+  const { username, setUsername } = useOptions()
   return (
     <div className="choices">
       <label>username</label>
@@ -8,8 +10,8 @@ export const Username: React.FC<UsernameProps> = (props) => {
         className="input"
         type="text"
         placeholder="input username"
-        onChange={(e) => props.setValue(e.target.value)}
-        value={props.value}
+        onChange={(e) => setUsername(e.target.value)}
+        value={username}
       />
     </div>
   )

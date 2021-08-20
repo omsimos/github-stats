@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Header } from './components/Header'
 import { Options } from './components/Options'
 import { Footer } from './components/Footer'
+import { OptionsContext } from './context/OptionsContext'
 
 const App: React.FC = () => {
   const [username, setUsername] = useState<string>('joshxfi')
@@ -62,7 +63,9 @@ const App: React.FC = () => {
     <div className="min-h-screen relative flex flex-col dxl:pb-24">
       <Header />
       <div className="flex dxl:flex-col dxl:items-center justify-between w-9/12 mx-auto overflow-x-hidden mt-10 max-w-screen-xl">
-        <Options {...optionsProps} />
+        <OptionsContext.Provider value={optionsProps}>
+          <Options />
+        </OptionsContext.Provider>
 
         <div className="flex flex-col justify-center mt-8">
           <img
