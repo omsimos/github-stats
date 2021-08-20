@@ -46,22 +46,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className='h-screen flex flex-col items-center'>
-      <div className=''>
+    <div className='min-h-screen flex justify-center'>
+      <div className='flex flex-col items-center w-[768px]'>
         <Header />
 
         <Options {...optionsProps} />
 
         <div className='dlg:hidden'>
           {username ? (
-            <div className='flex h-48'>
+            <div className='flex overflow-hidden'>
               <img
-                className='outline-none shadow-lg rounded-xl'
+                className='mr-4 outline-none shadow-lg rounded-xl h-40'
                 src={ghStats()}
                 alt='github stats'
               />
               <img
-                className='outline-none shadow-lg rounded-xl'
+                className='outline-none shadow-lg rounded-xl h-40'
                 src={ghTopLangs()}
                 alt='github top languages'
               />
