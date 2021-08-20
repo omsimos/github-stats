@@ -1,46 +1,46 @@
-import "./tailwind.css";
-import React, { useState } from "react";
-import { Header } from "./components/Header";
-import { Options } from "./components/Options";
-import { Footer } from "./components/Footer";
+import './tailwind.css'
+import React, { useState } from 'react'
+import { Header } from './components/Header'
+import { Options } from './components/Options'
+import { Footer } from './components/Footer'
 
 const App: React.FC = () => {
-  const [username, setUsername] = useState<string>("joshxfi");
-  const [theme, setTheme] = useState<string>("vue-dark");
-  const [border, setBorder] = useState<string>("true");
-  const [countPrivate, setCountPrivate] = useState<string>("true");
-  const [copied, setCopied] = useState<boolean>(false);
-  const [compact, setCompact] = useState<string>("compact");
+  const [username, setUsername] = useState<string>('joshxfi')
+  const [theme, setTheme] = useState<string>('vue-dark')
+  const [border, setBorder] = useState<string>('true')
+  const [countPrivate, setCountPrivate] = useState<string>('true')
+  const [copied, setCopied] = useState<boolean>(false)
+  const [compact, setCompact] = useState<string>('compact')
 
   const ghStats = () => {
-    return `https://github-readme-stats.vercel.app/api?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&count_private=${countPrivate}`;
-  };
+    return `https://github-readme-stats.vercel.app/api?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&count_private=${countPrivate}`
+  }
 
   const ghTopLangs = () => {
-    return `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&layout=${compact}`;
-  };
+    return `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&layout=${compact}`
+  }
 
   const copyStats = () => {
     if (username) {
-      navigator.clipboard.writeText(`![${username}\'s Stats](${ghStats()})`);
-      setCopied(true);
+      navigator.clipboard.writeText(`![${username}\'s Stats](${ghStats()})`)
+      setCopied(true)
 
-      setTimeout(() => setCopied(false), 4000);
+      setTimeout(() => setCopied(false), 4000)
     }
-    return;
-  };
+    return
+  }
 
   const copyLangs = () => {
     if (username) {
       navigator.clipboard.writeText(
         `![${username}\'s Top Languages](${ghTopLangs()})`
-      );
-      setCopied(true);
+      )
+      setCopied(true)
 
-      setTimeout(() => setCopied(false), 4000);
+      setTimeout(() => setCopied(false), 4000)
     }
-    return;
-  };
+    return
+  }
 
   const optionsProps = {
     username,
@@ -56,35 +56,35 @@ const App: React.FC = () => {
     setCountPrivate,
     setBorder,
     setCompact,
-  };
+  }
 
   return (
-    <div className='min-h-screen relative flex flex-col dxl:pb-24'>
+    <div className="min-h-screen relative flex flex-col dxl:pb-24">
       <Header />
-      <div className='flex dxl:flex-col dxl:items-center justify-between w-9/12 mx-auto overflow-x-hidden mt-10 max-w-screen-xl'>
+      <div className="flex dxl:flex-col dxl:items-center justify-between w-9/12 mx-auto overflow-x-hidden mt-10 max-w-screen-xl">
         <Options {...optionsProps} />
 
-        <div className='flex flex-col justify-center mt-8'>
+        <div className="flex flex-col justify-center mt-8">
           <img
-            className='mb-4 outline-none shadow-lg rounded-xl w-[30rem]'
+            className="mb-4 outline-none shadow-lg rounded-xl w-[30rem]"
             src={ghStats()}
-            alt='github stats'
+            alt="github stats"
           />
           <img
-            className='outline-none shadow-lg rounded-xl w-[30rem]'
+            className="outline-none shadow-lg rounded-xl w-[30rem]"
             src={ghTopLangs()}
-            alt='github top languages'
+            alt="github top languages"
           />
         </div>
 
-        <div className='hidden dmd:block my-auto text-lg text-green-400 mt-8'>
+        <div className="hidden dmd:block my-auto text-lg text-green-400 mt-8">
           <p>Not Available for Mobile!</p>
         </div>
       </div>
 
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
