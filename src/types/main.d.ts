@@ -1,4 +1,4 @@
-interface OptionsProps {
+interface Value {
   username: string
   theme: string
   countPrivate: string
@@ -12,23 +12,4 @@ interface OptionsProps {
   setCountPrivate: React.Dispatch<React.SetStateAction<string>>
   setBorder: React.Dispatch<React.SetStateAction<string>>
   setCompact: React.Dispatch<React.SetStateAction<string>>
-}
-
-interface Value extends OptionsProps {}
-interface ChoicesProps {
-  value: string
-  setValue: React.Dispatch<React.SetStateAction<string>>
-  choice1?: string
-  choice2?: string
-}
-
-interface ThemeOptionProps extends ChoicesProps {}
-
-interface UsernameProps extends ChoicesProps {}
-
-interface ButtonProps {
-  copyStats: () => void
-  copyLangs: () => void
-  copied: boolean
-  username: string
 }
