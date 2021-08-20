@@ -69,12 +69,12 @@ const App: React.FC = () => {
 
         <div className="flex flex-col justify-center mt-8">
           <img
-            className="mb-4 outline-none shadow-lg rounded-xl w-[30rem]"
+            className="mb-4 outline-none shadow-lg w-[30rem]"
             src={ghStats()}
             alt="github stats"
           />
           <img
-            className="outline-none shadow-lg rounded-xl w-[30rem]"
+            className="outline-none shadow-lg w-[30rem]"
             src={ghTopLangs()}
             alt="github top languages"
           />
