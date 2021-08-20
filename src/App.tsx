@@ -5,7 +5,7 @@ import { Options } from "./components/Options";
 import { Footer } from "./components/Footer";
 
 const App: React.FC = () => {
-  const [username, setUsername] = useState<string>("");
+  const [username, setUsername] = useState<string>("joshxfi");
   const [theme, setTheme] = useState<string>("vue-dark");
   const [border, setBorder] = useState<string>("true");
   const [countPrivate, setCountPrivate] = useState<string>("true");
@@ -46,29 +46,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className='min-h-screen flex justify-center'>
-      <div className='flex flex-col items-center w-[768px]'>
-        <Header />
-
+    <div className='min-h-screen relative flex flex-col'>
+      <Header />
+      <div className='flex justify-between w-9/12 mx-auto overflow-x-hidden mt-10'>
         <Options {...optionsProps} />
 
-        <div className='dlg:hidden'>
-          {username ? (
-            <div className='flex overflow-hidden'>
-              <img
-                className='mr-4 outline-none shadow-lg rounded-xl h-40'
-                src={ghStats()}
-                alt='github stats'
-              />
-              <img
-                className='outline-none shadow-lg rounded-xl h-40'
-                src={ghTopLangs()}
-                alt='github top languages'
-              />
-            </div>
-          ) : (
-            <h1 className='text-2xl text-green-400'>input your username</h1>
-          )}
+        <div className='dlg:hidden flex flex-col justify-center mt-8'>
+          <img
+            className='mb-4 outline-none shadow-lg rounded-xl min-h-48 w-[30rem]'
+            src={ghStats()}
+            alt='github stats'
+          />
+          <img
+            className='outline-none shadow-lg rounded-xl min-h-48 w-[30rem]'
+            src={ghTopLangs()}
+            alt='github top languages'
+          />
         </div>
 
         <div className='hidden dmd:block my-auto text-xl text-green-400'>

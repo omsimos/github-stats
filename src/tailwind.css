@@ -4,7 +4,7 @@
 
 @layer components {
   .input {
-    @apply mb-2 bg-gray-700 outline-none px-4 h-10 rounded-lg shadow-lg;
+    @apply mb-2 bg-gray-700 outline-none px-4 h-10 rounded-lg w-full;
   }
 
   .choices {
@@ -12,7 +12,11 @@
   }
 
   .link {
-    @apply hover:text-gray-400 transition duration-300
+    @apply hover:text-gray-400 transition duration-300;
+  }
+
+  option {
+    @apply text-base;
   }
 }
 
