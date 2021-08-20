@@ -20,9 +20,21 @@ const App: React.FC = () => {
     return `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&layout=${compact}`;
   };
 
-  const copyToClipboard = () => {
+  const copyStats = () => {
     if (username) {
       navigator.clipboard.writeText(`![${username}\'s Stats](${ghStats()})`);
+      setCopied(true);
+
+      setTimeout(() => setCopied(false), 4000);
+    }
+    return;
+  };
+
+  const copyLangs = () => {
+    if (username) {
+      navigator.clipboard.writeText(
+        `![${username}\'s Top Languages](${ghTopLangs()})`
+      );
       setCopied(true);
 
       setTimeout(() => setCopied(false), 4000);
@@ -37,7 +49,8 @@ const App: React.FC = () => {
     border,
     copied,
     compact,
-    copyToClipboard,
+    copyStats,
+    copyLangs,
     setUsername,
     setTheme,
     setCountPrivate,

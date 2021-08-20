@@ -5,7 +5,8 @@ interface OptionsProps {
   border: string;
   copied: boolean;
   compact: string;
-  copyToClipboard: () => void;
+  copyStats: () => void;
+  copyLangs: () => void;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   setTheme: React.Dispatch<React.SetStateAction<string>>;
   setCountPrivate: React.Dispatch<React.SetStateAction<string>>;

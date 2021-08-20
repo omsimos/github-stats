@@ -7,6 +7,7 @@ module.exports = {
       screens: {
         dmd: { max: "768px" },
         dlg: { max: "1024px" },
+        dxl: { max: "1464px" },
       },
     },
   },

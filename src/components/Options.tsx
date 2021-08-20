@@ -44,14 +44,26 @@ export const Options: React.FC<OptionsProps> = props => {
         </div>
 
         <div className='col-span-2  text-center'>
-          <button
-            onClick={() => props.copyToClipboard()}
-            className='bg-gray-800 h-10 w-full text-lg rounded-lg shadow-lg transition duration-300 hover:bg-gray-700 focus:ring ring-gray-600 ring-offset-4 ring-offset-gray-900'
-          >
-            Copy to Clipboard
+          <button onClick={() => props.copyStats()} className='btn'>
+            Copy to clipboard - [stats 💪]
           </button>
+
+          <button onClick={() => props.copyLangs()} className='btn'>
+            Copy to clipboard - [top languages 🐲]
+          </button>
+
+          <button className='btn'>
+            <a
+              href='https://github.com/joshxfi/gh-stats-generator'
+              target='_blank'
+              rel='noreferrer'
+            >
+              Star the repository - [✨]
+            </a>
+          </button>
+
           <motion.p
-            className='mt-4 text-base'
+            className='text-base'
             initial={{ opacity: 0 }}
             animate={{ opacity: props.copied ? 1 : 0 }}
           >
