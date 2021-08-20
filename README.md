@@ -6,4 +6,4 @@
 
 Made with `React.js` `Vite.js` `TailwindCSS`
 
-![GitHub Stats Generator Screenshot](https://user-images.githubusercontent.com/69457996/129446237-ff7622db-a6d5-4494-a5f7-5815d906d6d3.png)
+![GitHub Stats Generator Screenshot](https://user-images.githubusercontent.com/69457996/130179918-cb232cc4-8e6d-4bd4-a259-cbc4231067c6.png)
