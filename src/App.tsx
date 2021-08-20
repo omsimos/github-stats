@@ -59,25 +59,25 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className='min-h-screen relative flex flex-col'>
+    <div className='min-h-screen relative flex flex-col dxl:pb-24'>
       <Header />
-      <div className='flex justify-between w-9/12 mx-auto overflow-x-hidden mt-10'>
+      <div className='flex dxl:flex-col dxl:items-center justify-between w-9/12 mx-auto overflow-x-hidden mt-10 max-w-screen-xl'>
         <Options {...optionsProps} />
 
-        <div className='dlg:hidden flex flex-col justify-center mt-8'>
+        <div className='flex flex-col justify-center mt-8'>
           <img
-            className='mb-4 outline-none shadow-lg rounded-xl min-h-48 w-[30rem]'
+            className='mb-4 outline-none shadow-lg rounded-xl w-[30rem]'
             src={ghStats()}
             alt='github stats'
           />
           <img
-            className='outline-none shadow-lg rounded-xl min-h-48 w-[30rem]'
+            className='outline-none shadow-lg rounded-xl w-[30rem]'
             src={ghTopLangs()}
             alt='github top languages'
           />
         </div>
 
-        <div className='hidden dmd:block my-auto text-xl text-green-400'>
+        <div className='hidden dmd:block my-auto text-xl text-green-400 mt-8'>
           <p>Not Available for Mobile! 😭</p>
         </div>
       </div>

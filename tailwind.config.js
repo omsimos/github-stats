@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        dmd: { max: "768px" },
+        dmd: { max: "820px" },
         dlg: { max: "1024px" },
         dxl: { max: "1464px" },
       },
