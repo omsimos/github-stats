@@ -77,8 +77,8 @@ const App: React.FC = () => {
           />
         </div>
 
-        <div className='hidden dmd:block my-auto text-xl text-green-400 mt-8'>
-          <p>Not Available for Mobile! 😭</p>
+        <div className='hidden dmd:block my-auto text-lg text-green-400 mt-8'>
+          <p>Not Available for Mobile!</p>
         </div>
       </div>
 
