@@ -4,7 +4,7 @@ import { ThemeOption } from "./ThemeOption";
 
 export const Options: React.FC<OptionsProps> = props => {
   return (
-    <div className='text-xl grid grid-cols-2 gap-4 dmd:hidden'>
+    <div className='mt-8 text-xl grid grid-cols-2 gap-4 dmd:hidden'>
       <div className='choices'>
         <label>username</label>
         <input
