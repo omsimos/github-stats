@@ -13,8 +13,20 @@ interface OptionsProps {
   setBorder: React.Dispatch<React.SetStateAction<string>>
   setCompact: React.Dispatch<React.SetStateAction<string>>
 }
+interface ChoicesProps {
+  value: string
+  setValue: React.Dispatch<React.SetStateAction<string>>
+  choice1?: string
+  choice2?: string
+}
 
-interface ThemeOptionProps {
-  theme: string
-  setTheme: React.Dispatch<React.SetStateAction<string>>
+interface ThemeOptionProps extends ChoicesProps {}
+
+interface UsernameProps extends ChoicesProps {}
+
+interface ButtonProps {
+  copyStats: () => void
+  copyLangs: () => void
+  copied: boolean
+  username: string
 }
