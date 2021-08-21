@@ -7,25 +7,30 @@ export const Button: React.FC = () => {
 
   return (
     <div className="col-span-2  text-center">
-      <button onClick={() => copyStats()} className="btn">
-        Copy to clipboard - [stats 💪]
-      </button>
+      <div className="mb-4 border-t-4 border-b-4 py-4 border-green-600 rounded-lg">
+        <p className="pb-4">copy to clipboard!</p>
 
-      <button onClick={() => copyStreak()} className="btn">
-        Copy to clipboard - [ streak 🚀]
-      </button>
+        <div className="flex gap-4">
+          <button onClick={() => copyStats()} className="btn">
+            stats 💪
+          </button>
 
-      <button onClick={() => copyLangs()} className="btn">
-        Copy to clipboard - [top languages 🏅]
-      </button>
+          <button onClick={() => copyStreak()} className="btn">
+            streak 🚀
+          </button>
+        </div>
 
+        <button onClick={() => copyLangs()} className="btn">
+          top languages 🏅
+        </button>
+      </div>
       <button className="btn">
         <a
           href="https://github.com/joshxfi/gh-stats-generator"
           target="_blank"
           rel="noreferrer"
         >
-          Star the repository - [✨]
+          star this repository ✨
         </a>
       </button>
 
