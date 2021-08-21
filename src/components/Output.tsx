@@ -17,7 +17,7 @@ export const Output: React.FC = () => {
   }, [username])
 
   return (
-    <div className="flex flex-col items-center justify-center mt-8 w-full">
+    <div className="flex flex-col items-center mt-8 w-full">
       {userNotFound ? (
         <div className="text-lg border-b-4 border-green-400">
           <h1>username could not be found :(</h1>
