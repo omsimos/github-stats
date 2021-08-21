@@ -8,7 +8,7 @@ export const Button: React.FC = () => {
   return (
     <div className="col-span-2  text-center">
       <div className="mb-4 border-t-4 border-b-4 py-4 border-green-600 rounded-lg">
-        <p className="pb-4">copy to clipboard!</p>
+        <p className="pb-4">[ copy to clipboard ]</p>
 
         <div className="flex gap-4">
           <button onClick={() => copyStats()} className="btn">

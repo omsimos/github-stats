@@ -3,7 +3,7 @@ import React from 'react'
 export const Header = () => {
   return (
     <div className="text-center">
-      <h1 className="text-4xl dmd:text-lg font-bold mt-16">
+      <h1 className="text-4xl dmd:text-lg font-bold mt-8">
         GitHub README Stats Generator
       </h1>
       <a
