@@ -11,7 +11,7 @@ interface OptionsProps {
 }
 
 export const OptionsProvider = ({ children }: OptionsProps) => {
-  const [username, setUsername] = useState<string>('joshxfi')
+  const [username, setUsername] = useState<string>('')
   const [theme, setTheme] = useState<string>('vue-dark')
   const [border, setBorder] = useState<string>('true')
   const [countPrivate, setCountPrivate] = useState<string>('true')
@@ -32,7 +32,7 @@ export const OptionsProvider = ({ children }: OptionsProps) => {
   }
 
   const copyStats = () => {
-    if (username) {
+    if (!userNotFound) {
       navigator.clipboard.writeText(`![${username}\'s Stats](${ghStats()})`)
       setCopied(true)
 

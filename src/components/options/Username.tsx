@@ -7,6 +7,7 @@ export const Username: React.FC = () => {
     <div className="choices">
       <label>username</label>
       <input
+        spellCheck="false"
         className="input"
         type="text"
         placeholder="input username"
