@@ -7,6 +7,8 @@ interface Value {
   compact: string
   copyStats: () => void
   copyLangs: () => void
+  ghStats: () => string
+  ghTopLangs: () => string
   setUsername: React.Dispatch<React.SetStateAction<string>>
   setTheme: React.Dispatch<React.SetStateAction<string>>
   setCountPrivate: React.Dispatch<React.SetStateAction<string>>
