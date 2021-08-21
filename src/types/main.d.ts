@@ -5,6 +5,7 @@ interface Value {
   border: string
   copied: boolean
   compact: string
+  userNotFound: boolean
   copyStats: () => void
   copyLangs: () => void
   ghStats: () => string
@@ -15,4 +16,5 @@ interface Value {
   setCountPrivate: React.Dispatch<React.SetStateAction<string>>
   setBorder: React.Dispatch<React.SetStateAction<string>>
   setCompact: React.Dispatch<React.SetStateAction<string>>
+  setUserNotFound: React.Dispatch<React.SetStateAction<boolean>>
 }
