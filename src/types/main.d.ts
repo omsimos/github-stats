@@ -8,6 +8,7 @@ interface Value {
   userNotFound: boolean
   copyStats: () => void
   copyLangs: () => void
+  copyStreak: () => void
   ghStats: () => string
   ghTopLangs: () => string
   ghStreak: () => string

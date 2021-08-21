@@ -53,6 +53,16 @@ export const OptionsProvider = ({ children }: OptionsProps) => {
     return
   }
 
+  const copyStreak = () => {
+    if (username) {
+      navigator.clipboard.writeText(`![${username}\'s Streak](${ghStreak()})`)
+      setCopied(true)
+
+      setTimeout(() => setCopied(false), 4000)
+    }
+    return
+  }
+
   const value: Value = {
     username,
     theme,
@@ -62,6 +72,7 @@ export const OptionsProvider = ({ children }: OptionsProps) => {
     compact,
     copyStats,
     copyLangs,
+    copyStreak,
     ghStats,
     ghTopLangs,
     ghStreak,

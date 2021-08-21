@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useOptions } from '../../context/OptionsContext'
 
 export const Button: React.FC = () => {
-  const { copyStats, copyLangs, copied, username } = useOptions()
+  const { copyStats, copyStreak, copyLangs, copied, username } = useOptions()
 
   return (
     <div className="col-span-2  text-center">
@@ -11,8 +11,12 @@ export const Button: React.FC = () => {
         Copy to clipboard - [stats 💪]
       </button>
 
+      <button onClick={() => copyStreak()} className="btn">
+        Copy to clipboard - [ streak 🚀]
+      </button>
+
       <button onClick={() => copyLangs()} className="btn">
-        Copy to clipboard - [top languages 🐲]
+        Copy to clipboard - [top languages 🏅]
       </button>
 
       <button className="btn">
