@@ -8,7 +8,7 @@ import { Output } from './components/Output'
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen relative flex flex-col dxl:pb-24">
+    <div className="min-h-screen relative flex flex-col pb-24">
       <Header />
 
       <div className="flex dxl:flex-col dxl:items-center justify-between w-9/12 mx-auto overflow-x-hidden mt-10 max-w-screen-xl">

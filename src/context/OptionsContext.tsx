@@ -26,6 +26,10 @@ export const OptionsProvider = ({ children }: OptionsProps) => {
     return `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&layout=${compact}`
   }
 
+  const ghStreak = () => {
+    return `https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=${border}`
+  }
+
   const copyStats = () => {
     if (username) {
       navigator.clipboard.writeText(`![${username}\'s Stats](${ghStats()})`)
@@ -59,6 +63,7 @@ export const OptionsProvider = ({ children }: OptionsProps) => {
     copyLangs,
     ghStats,
     ghTopLangs,
+    ghStreak,
     setUsername,
     setTheme,
     setCountPrivate,

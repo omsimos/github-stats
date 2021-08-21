@@ -9,6 +9,7 @@ interface Value {
   copyLangs: () => void
   ghStats: () => string
   ghTopLangs: () => string
+  ghStreak: () => string
   setUsername: React.Dispatch<React.SetStateAction<string>>
   setTheme: React.Dispatch<React.SetStateAction<string>>
   setCountPrivate: React.Dispatch<React.SetStateAction<string>>
