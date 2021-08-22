@@ -18,11 +18,15 @@
   .btn {
     @apply mb-4 bg-gray-800 h-10 w-full rounded-lg shadow-lg transition duration-300 hover:bg-gray-700 focus:ring ring-gray-600 ring-offset-4 ring-offset-gray-900 text-base;
   }
-
+  
   .output {
-    @apply mb-1 outline-none shadow-lg w-[25rem]
+    @apply mb-1 outline-none shadow-lg w-[25rem] dxl:w-[30rem];
   }
-
+  
+  .attribution {
+    @apply text-green-400 dmd:text-xs;
+  }
+  
   option {
     @apply text-base;
   }

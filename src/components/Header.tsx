@@ -7,7 +7,7 @@ export const Header = () => {
         GitHub README Stats Generator
       </h1>
       <a
-        className="text-green-400 mr-2"
+        className="attribution mr-2"
         href="https://github.com/anuraghazra/github-readme-stats"
         target="_blank"
         rel="noreferrer"
@@ -15,7 +15,7 @@ export const Header = () => {
         <i>stats from anuraghazra |</i>
       </a>
       <a
-        className="text-green-400"
+        className="attribution"
         href="https://github.com/DenverCoder1/github-readme-streak-stats"
         target="_blank"
         rel="noreferrer"
