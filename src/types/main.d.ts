@@ -19,3 +19,8 @@ interface Value {
   setCompact: React.Dispatch<React.SetStateAction<string>>
   setUserNotFound: React.Dispatch<React.SetStateAction<boolean>>
 }
+
+interface CopyProps {
+  action: () => void
+  about: string
+}

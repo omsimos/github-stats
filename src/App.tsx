@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <div className="min-h-screen relative flex flex-col pb-24">
       <Header />
 
-      <div className="flex dxl:flex-col dxl:items-center justify-between w-9/12 mx-auto overflow-x-hidden mt-10 max-w-screen-xl">
+      <div className="flex dxl:flex-col dxl:items-center justify-between w-9/12 mx-auto overflow-x-hidden mt-4 max-w-screen-xl">
         <OptionsProvider>
           <Options />
           <Output />

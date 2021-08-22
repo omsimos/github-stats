@@ -11,18 +11,10 @@ export const Button: React.FC = () => {
         <p className="pb-4">[ copy to clipboard ]</p>
 
         <div className="flex gap-4">
-          <button onClick={() => copyStats()} className="btn">
-            stats 💪
-          </button>
-
-          <button onClick={() => copyStreak()} className="btn">
-            streak 🚀
-          </button>
+          <Copy action={copyStats} about="stats 💪" />
+          <Copy action={copyStreak} about="streak 🚀" />
+          <Copy action={copyLangs} about="top languages 🏅" />
         </div>
-
-        <button onClick={() => copyLangs()} className="btn">
-          top languages 🏅
-        </button>
       </div>
       <button className="btn">
         <a
@@ -42,5 +34,13 @@ export const Button: React.FC = () => {
         📋 copied to clipboard! paste it on the repo: {username}/{username}
       </motion.p>
     </div>
+  )
+}
+
+export const Copy: React.FC<CopyProps> = ({ action, about }) => {
+  return (
+    <button onClick={() => action()} className="btn">
+      {about}
+    </button>
   )
 }

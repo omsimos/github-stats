@@ -2,12 +2,12 @@ import React from 'react'
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="flex dmd:flex-col dlg:flex-col justify-between px-32 dmd:px-4 dmd:items-center dlg:items-center w-full absolute bottom-0 py-5 bg-green-900 dlg:text-base">
+    <footer className="flex dmd:flex-col dlg:flex-col justify-between px-32 dmd:px-4 dmd:items-center dlg:items-center w-full absolute bottom-0 py-3 bg-green-900 dlg:text-base">
       <p className="text-sm">© Josh Daniel 2021 • All Rights Reserved</p>
       <div className="dmd:mt-3">
         <a
           className="mr-16 link"
-          href="https://github.com/joshxfi/gh-stats-generator"
+          href="https://github.com/joshxfi"
           target="_blank"
           rel="noreferrer"
         >
@@ -15,11 +15,11 @@ export const Footer: React.FC = () => {
         </a>
         <a
           className="mr-16 link"
-          href="https://github.com/anuraghazra/github-readme-stats"
+          href="https://github.com/joshxfi/gh-stats-generator"
           target="_blank"
           rel="noreferrer"
         >
-          Generator
+          Repository
         </a>
         <a
           className="link"

@@ -12,7 +12,7 @@
   }
 
   .link {
-    @apply hover:text-gray-400 transition duration-300 dmd:text-sm;
+    @apply hover:text-gray-400 transition duration-300 text-sm;
   }
 
   .btn {
@@ -20,7 +20,7 @@
   }
 
   .output {
-    @apply mb-4 outline-none shadow-lg w-[30rem]
+    @apply mb-1 outline-none shadow-lg w-[25rem]
   }
 
   option {
@@ -30,6 +30,10 @@
 
 select {
   cursor: pointer;
+}
+
+::selection {
+  background: #059669;
 }
 
 ::-webkit-scrollbar-track {
