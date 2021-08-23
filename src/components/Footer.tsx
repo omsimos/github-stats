@@ -18,7 +18,12 @@ export const Footer: React.FC = () => {
 
 const Link = ({ href, info }: { href: string; info: string }) => {
   return (
-    <a className="link" href={href} target="_blank" rel="noreferrer">
+    <a
+      className={`link ${info !== 'Portfolio' ? 'mr-16' : ''}`}
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+    >
       {info}
     </a>
   )
