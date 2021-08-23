@@ -5,7 +5,6 @@ interface Value {
   border: string
   copied: boolean
   compact: string
-  userNotFound: boolean
   copyStats: () => void
   copyLangs: () => void
   copyStreak: () => void

@@ -17,7 +17,6 @@ export const OptionsProvider = ({ children }: OptionsProps) => {
   const [countPrivate, setCountPrivate] = useState<string>('true')
   const [copied, setCopied] = useState<boolean>(false)
   const [compact, setCompact] = useState<string>('compact')
-  const [userNotFound, setUserNotFound] = useState<boolean>(false)
 
   const ghStats = () => {
     return `https://github-readme-stats.vercel.app/api?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&count_private=${countPrivate}`
@@ -32,7 +31,7 @@ export const OptionsProvider = ({ children }: OptionsProps) => {
   }
 
   const copyStats = () => {
-    if (!userNotFound) {
+    if (username) {
       navigator.clipboard.writeText(`![${username}\'s Stats](${ghStats()})`)
       setCopied(true)
 
@@ -81,7 +80,6 @@ export const OptionsProvider = ({ children }: OptionsProps) => {
     setCountPrivate,
     setBorder,
     setCompact,
-    userNotFound,
   }
 
   return (
