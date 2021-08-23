@@ -82,7 +82,6 @@ export const OptionsProvider = ({ children }: OptionsProps) => {
     setBorder,
     setCompact,
     userNotFound,
-    setUserNotFound,
   }
 
   return (

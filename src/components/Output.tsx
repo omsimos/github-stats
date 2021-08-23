@@ -1,29 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useOptions } from '../context/OptionsContext'
 
 export const Output: React.FC = () => {
-  const {
-    ghStats,
-    ghStreak,
-    ghTopLangs,
-    userNotFound,
-    setUserNotFound,
-    username,
-  } = useOptions()
-
-  useEffect(() => {
-    setUserNotFound(false)
-  }, [username])
+  const { ghStats, ghStreak, ghTopLangs, username } = useOptions()
 
   return (
     <div className="flex flex-col items-center mt-8 w-full">
-      {userNotFound ? (
+      {username === '' ? (
         <div className="text-lg border-b-4 border-green-400 dmd:hidden">
-          <h1>
-            {username
-              ? 'username could not be found 😿'
-              : 'input your github username 😸'}
-          </h1>
+          <h1>input your username 😸</h1>
         </div>
       ) : (
         <div>
@@ -37,14 +22,5 @@ export const Output: React.FC = () => {
 }
 
 const Image = ({ image, alt }: { image: string; alt: string }) => {
-  const { setUserNotFound } = useOptions()
-
-  return (
-    <img
-      className="output"
-      onError={() => setUserNotFound(true)}
-      src={image}
-      alt={alt}
-    />
-  )
+  return <img className="output" src={image} alt={alt} />
 }

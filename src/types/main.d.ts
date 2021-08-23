@@ -17,7 +17,6 @@ interface Value {
   setCountPrivate: React.Dispatch<React.SetStateAction<string>>
   setBorder: React.Dispatch<React.SetStateAction<string>>
   setCompact: React.Dispatch<React.SetStateAction<string>>
-  setUserNotFound: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface CopyProps {
