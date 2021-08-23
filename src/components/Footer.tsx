@@ -5,31 +5,22 @@ export const Footer: React.FC = () => {
     <footer className="flex dmd:flex-col dlg:flex-col justify-between px-32 dmd:px-4 dmd:items-center dlg:items-center w-full absolute bottom-0 py-3 bg-green-900 dlg:text-base">
       <p className="text-sm">© Josh Daniel 2021 • All Rights Reserved</p>
       <div className="dmd:mt-3">
-        <a
-          className="mr-16 link"
-          href="https://github.com/joshxfi"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub
-        </a>
-        <a
-          className="mr-16 link"
+        <Link href="https://github.com/joshxfi" info="GitHub" />
+        <Link
           href="https://github.com/joshxfi/gh-stats-generator"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Repository
-        </a>
-        <a
-          className="link"
-          href="https://xfi.vercel.app"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Portfolio
-        </a>
+          info="Repository"
+        />
+        <Link href="https://joshdaniel.tk" info="Portfolio" />
       </div>
     </footer>
   )
 }
+
+const Link = ({ href, info }: { href: string; info: string }) => {
+  return (
+    <a className="link" href={href} target="_blank" rel="noreferrer">
+      {info}
+    </a>
+  )
+}
+
