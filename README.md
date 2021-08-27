@@ -1,6 +1,6 @@
 # 🔥 GitHub README Stats Generator
 
-### Try it out! https://gh-stats-gen.vercel.app/
+### Try it out! [Generator &rarr;](https://gh-stats-gen.vercel.app/)
 
 
 ![](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
