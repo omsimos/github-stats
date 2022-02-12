@@ -20,11 +20,11 @@
   }
   
   .output {
-    @apply mb-1 outline-none shadow-lg w-[25rem] dxl:w-[30rem];
+    @apply mb-1 outline-none shadow-lg w-[25rem] xl:w-[30rem];
   }
   
   .attribution {
-    @apply text-green-400 dmd:text-xs;
+    @apply text-green-400 md:text-xs;
   }
   
   option {
