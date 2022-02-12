@@ -7,11 +7,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@types/react-select": "^4.0.17",
-    "framer-motion": "^4.1.17",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "react-select": "^4.3.1"
+    "react-dom": "^17.0.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
