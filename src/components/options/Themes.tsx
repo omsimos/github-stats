@@ -1,15 +1,15 @@
-import React from 'react'
-import { useOptions } from '../../context/OptionsContext'
-import { themeValue, themeName } from '../../data/themeData'
+import React from 'react';
+import { useOptions } from '../../context/OptionsContext';
+import { themeValue, themeName } from '../../data/themeData';
 
 export const ThemeOption: React.FC = () => {
-  const { theme, setTheme } = useOptions()
+  const { theme, setTheme } = useOptions();
 
   return (
-    <div className="choices">
+    <div className='choices'>
       <label>theme</label>
       <select
-        className="input appearance-none"
+        className='input appearance-none'
         onChange={(e) => setTheme(e.target.value)}
         value={theme}
       >
@@ -20,5 +20,5 @@ export const ThemeOption: React.FC = () => {
         ))}
       </select>
     </div>
-  )
-}
+  );
+};

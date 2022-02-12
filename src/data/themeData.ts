@@ -43,7 +43,7 @@ export const themeValue = [
   'slateorange',
   'kacho_ga',
   'outrun',
-]
+];
 
 export const themeName = [
   'Default',
@@ -90,4 +90,4 @@ export const themeName = [
   'Slateorange',
   'Kacho Ga',
   'Outrun',
-]
+];

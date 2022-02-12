@@ -3,4 +3,3 @@ dist
 yarn.lock
 *.config.js
 *.config.ts
-*.d.ts
