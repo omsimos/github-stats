@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Footer: React.FC = () => {
+const Footer: React.FC = () => {
   return (
     <footer className='flex dmd:flex-col dlg:flex-col justify-between px-32 dmd:px-4 dmd:items-center dlg:items-center w-full absolute bottom-0 py-3 bg-green-900 dlg:text-base'>
       <p className='text-sm'>© Josh Daniel 2021 • All Rights Reserved</p>
@@ -28,3 +28,5 @@ const Link = ({ href, info }: { href: string; info: string }) => {
     </a>
   );
 };
+
+export default Footer;

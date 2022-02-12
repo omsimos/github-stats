@@ -1,9 +1,8 @@
 import React from 'react';
-import { Header } from './components/Header';
 import { Options } from './components/Options';
-import { Footer } from './components/Footer';
 import { OptionsProvider } from './context/OptionsContext';
 import { Output } from './components/Output';
+import { Footer, Header } from './components';
 
 const App: React.FC = () => {
   return (
