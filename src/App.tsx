@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { themeName, themeValue } from './data';
 import { Footer, Header, Select } from './components';
+import { themes } from './data';
 
 const App: React.FC = () => {
   const [username, setUsername] = useState<string>('');
@@ -43,9 +43,9 @@ const App: React.FC = () => {
               onChange={(e) => setTheme(e.target.value)}
               options={
                 <>
-                  {themeValue.map((val, i) => (
-                    <option key={themeName[i]} value={val}>
-                      {themeName[i]}
+                  {themes.map(({ value, name }) => (
+                    <option key={value} value={name}>
+                      {name}
                     </option>
                   ))}
                 </>
