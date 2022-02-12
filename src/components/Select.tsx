@@ -1,6 +1,10 @@
 import React from 'react';
 
-interface SelectProps extends React.HTMLAttributes<HTMLSelectElement> {
+interface SelectProps
+  extends React.DetailedHTMLProps<
+    React.SelectHTMLAttributes<HTMLSelectElement>,
+    HTMLSelectElement
+  > {
   options: JSX.Element;
   label: string;
 }
