@@ -2,12 +2,10 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div className='text-center'>
-      <h1 className='text-4xl dmd:text-lg font-bold mt-7'>
-        GitHub Stats Generator
-      </h1>
+    <div className='text-center mt-8'>
+      <h1 className='md:text-4xl text-2xl font-bold'>GitHub Stats Generator</h1>
       <a
-        className='text-green-400 mr-2'
+        className='text-green-400 text-sm md:text-base'
         href='https://github.com/joshxfi'
         target='_blank'
         rel='noreferrer'

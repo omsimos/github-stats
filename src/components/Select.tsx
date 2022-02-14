@@ -26,7 +26,7 @@ function Select({ label, options, onChange, defaultValue }: SelectProps) {
 
   return (
     <div>
-      <p>{label}</p>
+      <p className='text-sm md:text-base'>{label}</p>
       <Listbox value={selectedOption} onChange={setSelectedOption}>
         <div className='relative w-full shadow-lg'>
           <Listbox.Button className='input'>

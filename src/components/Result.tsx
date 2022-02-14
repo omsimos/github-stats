@@ -74,7 +74,7 @@ const Result = ({
 
                 setIsOpen(false);
               }}
-              className='md:w-full max-w-md w-[350px] p-6 transform'
+              className='w-full max-w-md p-6 transform'
             >
               <div className='flex flex-col items-center w-full'>
                 <img
