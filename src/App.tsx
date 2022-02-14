@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Footer, Header, Result, Select } from './components';
-import { themes, countPrivateCommits, showBorder } from './data';
+import { themes, countPrivateCommits, showBorder, darkToast } from './data';
 
 const App: React.FC = () => {
   const [username, setUsername] = useState('joshxfi');
@@ -59,20 +59,17 @@ const App: React.FC = () => {
         </div>
 
         <button
+          disabled={!username}
           type='button'
           onClick={() => {
             toast('click on one of the stats to copy', {
               icon: '❓',
-              style: {
-                background: '#2d3748',
-                color: '#f9f9f9',
-                fontSize: '0.9rem',
-              },
+              style: darkToast,
             });
 
             setShowResult(true);
           }}
-          className='self-end bg-green-600 mt-8 py-2 px-4 rounded focus:ring ring-green-700 ring-offset-4 ring-offset-gray-900 transition-all'
+          className='disabled:cursor-not-allowed disabled:bg-gray-700 self-end bg-green-600 mt-8 py-2 px-4 rounded focus:ring ring-green-700 ring-offset-4 ring-offset-gray-900 transition-all'
         >
           Show Result
         </button>

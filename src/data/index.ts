@@ -54,3 +54,9 @@ export const showBorder = [
   { value: 'true', name: 'Hide Border' },
   { value: 'false', name: 'Show Border' },
 ];
+
+export const darkToast = {
+  background: '#2d3748',
+  color: '#f9f9f9',
+  fontSize: '0.9rem',
+};
