@@ -4,7 +4,7 @@ import { Listbox, Transition } from '@headlessui/react';
 import { HiSelector, HiCheck } from 'react-icons/hi';
 import { nanoid } from 'nanoid';
 
-export type IChoice = { value: string; name: string };
+type IChoice = { value: string; name: string };
 
 interface SelectProps {
   label: string;

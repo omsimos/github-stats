@@ -4,11 +4,27 @@ import { Footer, Header, Result, Select } from './components';
 import { themes, countPrivateCommits, showBorder, darkToast } from './data';
 
 const App: React.FC = () => {
-  const [username, setUsername] = useState('joshxfi');
+  const [username, setUsername] = useState('');
   const [theme, setTheme] = useState(themes[14]);
   const [border, setBorder] = useState(showBorder[0]);
   const [countPrivate, setCountPrivate] = useState(countPrivateCommits[0]);
   const [showResult, setShowResult] = useState(false);
+
+  const handleShowResult = () => {
+    if (!username) {
+      toast('enter your github username', {
+        icon: '🔥',
+        ...darkToast,
+      });
+    } else {
+      toast('click on one of the stats to copy', {
+        icon: '❓',
+        ...darkToast,
+      });
+
+      setShowResult(true);
+    }
+  };
 
   return (
     <div className='min-h-screen relative flex flex-col pb-24'>
@@ -58,21 +74,41 @@ const App: React.FC = () => {
           />
         </div>
 
-        <button
-          disabled={!username}
-          type='button'
-          onClick={() => {
-            toast('click on one of the stats to copy', {
-              icon: '❓',
-              style: darkToast,
-            });
+        <div className='flex justify-between mt-8'>
+          <div>
+            <p>APIs used for the stats:</p>
 
-            setShowResult(true);
-          }}
-          className='disabled:cursor-not-allowed disabled:bg-gray-700 self-end bg-green-600 mt-8 py-2 px-4 rounded focus:ring ring-green-700 ring-offset-4 ring-offset-gray-900 transition-all'
-        >
-          Show Result
-        </button>
+            <div className='flex flex-col text-green-400'>
+              <a
+                className='attribution mr-2'
+                href='https://github.com/anuraghazra/github-readme-stats'
+                target='_blank'
+                rel='noreferrer'
+              >
+                anuraghazra/github-readme-stats
+              </a>
+
+              <a
+                className='attribution'
+                href='https://github.com/DenverCoder1/github-readme-streak-stats'
+                target='_blank'
+                rel='noreferrer'
+              >
+                DenverCoder1/github-readme-streak-stats
+              </a>
+            </div>
+          </div>
+
+          <button
+            type='button'
+            onClick={handleShowResult}
+            className={`${
+              !username && 'cursor-not-allowed bg-gray-700'
+            } self-end bg-green-600 py-2 px-4 rounded focus:ring ring-green-700 ring-offset-4 ring-offset-gray-900 transition-all`}
+          >
+            Show Result
+          </button>
+        </div>
       </div>
 
       <Footer />

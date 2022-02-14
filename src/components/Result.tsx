@@ -1,0 +1,116 @@
+import React, { Fragment } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import toast from 'react-hot-toast';
+import { darkToast } from '../data';
+
+interface ResultProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  username: string;
+  theme: string;
+  border: string;
+  countPrivate: string;
+}
+
+const Result = ({
+  isOpen,
+  setIsOpen,
+  username,
+  border,
+  countPrivate,
+  theme,
+}: ResultProps) => {
+  const ghStats = `https://github-readme-stats.vercel.app/api?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&count_private=${countPrivate}`;
+
+  const ghTopLangs = `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&layout=compact`;
+
+  const ghStreak = `https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=${border}`;
+
+  const copyToClipboard = (text: string) => {
+    if (username) {
+      navigator.clipboard.writeText(text);
+      toast('copied to clipboard', {
+        icon: '👌',
+        ...darkToast,
+      });
+    }
+  };
+
+  return (
+    <Transition appear show={isOpen} as={Fragment}>
+      <Dialog
+        as='div'
+        className='fixed inset-0 z-50 overflow-y-auto bg-gray-900/90'
+        onClose={() => setIsOpen(false)}
+      >
+        <div className='min-h-screen px-4 text-center grid place-items-center'>
+          <Transition.Child
+            as={Fragment}
+            enter='ease-out duration-300'
+            enterFrom='opacity-0'
+            enterTo='opacity-100'
+            leave='ease-in duration-200'
+            leaveFrom='opacity-100'
+            leaveTo='opacity-0'
+          >
+            <Dialog.Overlay className='fixed inset-0' />
+          </Transition.Child>
+
+          <Transition.Child
+            as={Fragment}
+            enter='ease-out duration-300'
+            enterFrom='opacity-0 scale-95'
+            enterTo='opacity-100 scale-100'
+            leave='ease-in duration-200'
+            leaveFrom='opacity-100 scale-100'
+            leaveTo='opacity-0 scale-95'
+          >
+            <div
+              onError={() => {
+                toast('user might not exist', {
+                  icon: '❌',
+                  ...darkToast,
+                });
+
+                setIsOpen(false);
+              }}
+              className='md:w-full max-w-md w-[350px] p-6 transform'
+            >
+              <div className='flex flex-col items-center w-full'>
+                <img
+                  onClick={() =>
+                    copyToClipboard(`![${username}\'s Stats](${ghStats})`)
+                  }
+                  className='output'
+                  src={ghStats}
+                  alt='github stats'
+                />
+
+                <img
+                  onClick={() =>
+                    copyToClipboard(`![${username}\'s Streak](${ghStreak})`)
+                  }
+                  className='output'
+                  src={ghStreak}
+                  alt='github streak'
+                />
+                <img
+                  onClick={() =>
+                    copyToClipboard(
+                      `![${username}\'s Top Languages](${ghTopLangs})`
+                    )
+                  }
+                  className='output'
+                  src={ghTopLangs}
+                  alt='github top languages'
+                />
+              </div>
+            </div>
+          </Transition.Child>
+        </div>
+      </Dialog>
+    </Transition>
+  );
+};
+
+export default Result;

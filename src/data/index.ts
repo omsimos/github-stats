@@ -1,3 +1,5 @@
+import { Toast } from 'react-hot-toast';
+
 export const themes = [
   { name: 'Default', value: 'default' },
   { name: 'Dark', value: 'dark' },
@@ -55,8 +57,11 @@ export const showBorder = [
   { value: 'false', name: 'Show Border' },
 ];
 
-export const darkToast = {
-  background: '#2d3748',
-  color: '#f9f9f9',
-  fontSize: '0.9rem',
+export const darkToast: Partial<Toast> = {
+  style: {
+    background: '#2d3748',
+    color: '#f9f9f9',
+    fontSize: '0.9rem',
+  },
+  position: 'top-right',
 };
