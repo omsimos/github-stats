@@ -7,10 +7,6 @@
     @apply hover:text-gray-400 transition duration-300 text-sm;
   }
 
-  .btn {
-    @apply mb-4 bg-gray-800 h-10 w-full rounded shadow-lg transition duration-300 hover:bg-gray-700 focus:ring ring-gray-500 ring-offset-4 ring-offset-gray-900 text-base;
-  }
-
   .output {
     @apply mb-1 outline-none shadow-lg w-[25rem] xl:w-[30rem] cursor-pointer;
   }

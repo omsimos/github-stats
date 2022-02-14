@@ -2,7 +2,6 @@
 import React, { Fragment, useEffect, useMemo, useState } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { HiSelector, HiCheck } from 'react-icons/hi';
-import { nanoid } from 'nanoid';
 
 type IChoice = { value: string; name: string };
 
@@ -21,8 +20,6 @@ function Select({ label, options, onChange, defaultValue }: SelectProps) {
   useEffect(() => {
     onChange(selectedOption);
   }, [selectedOption]);
-
-  const ids = useMemo(() => options.map(() => nanoid()), [options]);
 
   return (
     <div>
@@ -45,9 +42,9 @@ function Select({ label, options, onChange, defaultValue }: SelectProps) {
             leaveTo='opacity-0'
           >
             <Listbox.Options className='absolute z-20 w-full py-1 mt-1 overflow-auto text-sm bg-gray-700 rounded shadow-lg md:text-base max-h-60'>
-              {options.map((item, idx) => (
+              {options.map((item) => (
                 <Listbox.Option
-                  key={ids[idx]}
+                  key={item.name}
                   className={({ active }) =>
                     `${
                       active ? 'bg-gray-600' : 'bg-gray-700'

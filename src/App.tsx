@@ -103,8 +103,8 @@ const App: React.FC = () => {
             className={`${
               !username
                 ? 'cursor-not-allowed bg-gray-700'
-                : 'focus:ring ring-green-700 ring-offset-4 ring-offset-gray-900 transition-all'
-            } self-end bg-green-600 py-2 px-4 rounded w-full sm:w-auto`}
+                : 'focus:ring ring-green-700 ring-offset-4 ring-offset-gray-900 transition-all bg-green-600 hover:bg-green-700'
+            } self-end py-2 px-4 rounded w-full sm:w-auto`}
           >
             Show Result
           </button>
