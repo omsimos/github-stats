@@ -7,8 +7,10 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.3",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

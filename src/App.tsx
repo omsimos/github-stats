@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Footer, Header, Select } from './components';
+import { Footer, Header, Select, IChoice } from './components';
 import { themes } from './data';
 
 const App: React.FC = () => {
-  const [username, setUsername] = useState<string>('');
-  const [theme, setTheme] = useState<string>('vue-dark');
-  const [border, setBorder] = useState<string>('true');
-  const [countPrivate, setCountPrivate] = useState<string>('true');
+  const [username, setUsername] = useState('');
+  const [theme, setTheme] = useState({} as IChoice);
+  const [border, setBorder] = useState({} as IChoice);
+  const [countPrivate, setCountPrivate] = useState({} as IChoice);
 
   const ghStats = `https://github-readme-stats.vercel.app/api?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&count_private=${countPrivate}`;
 
@@ -22,10 +22,10 @@ const App: React.FC = () => {
     <div className='min-h-screen relative flex flex-col pb-24'>
       <Header />
 
-      <div className='flex justify-center max-w-screen-xl w-full mx-auto'>
+      <div className='flex justify-center max-w-screen-xl w-full mx-auto mt-8'>
         <div className='flex flex-col w-full'>
-          <div className='grid grid-cols-2 gap-2'>
-            <div className='choices'>
+          <div className='grid grid-cols-2 gap-x-4 gap-y-8'>
+            <div className='flex flex-col w-full'>
               <label>username</label>
               <input
                 spellCheck='false'
@@ -39,45 +39,33 @@ const App: React.FC = () => {
 
             <Select
               label='theme'
-              value={theme}
-              onChange={(e) => setTheme(e.target.value)}
-              options={
-                <>
-                  {themes.map(({ value, name }) => (
-                    <option key={value} value={name}>
-                      {name}
-                    </option>
-                  ))}
-                </>
-              }
+              defaultValue={themes[14]}
+              onChange={(e) => setTheme(e)}
+              options={themes}
             />
 
             <Select
-              value={countPrivate}
-              onChange={(e) => setCountPrivate(e.target.value)}
+              defaultValue={{ value: 'true', name: 'Show Private Commits' }}
+              onChange={(e) => setCountPrivate(e)}
               label='private commits'
-              options={
-                <>
-                  <option value='true'>Show Private Commits</option>
-                  <option value='false'>Hide Private Commits</option>
-                </>
-              }
+              options={[
+                { value: 'true', name: 'Show Private Commits' },
+                { value: 'false', name: 'Hide Private Commits' },
+              ]}
             />
 
             <Select
-              value={border}
-              onChange={(e) => setBorder(e.target.value)}
+              defaultValue={{ value: 'true', name: 'Show Border' }}
+              onChange={(e) => setBorder(e)}
               label='show border'
-              options={
-                <>
-                  <option value='true'>Hide Border</option>
-                  <option value='false'>Show Border</option>
-                </>
-              }
+              options={[
+                { value: 'true', name: 'Hide Border' },
+                { value: 'false', name: 'Show Border' },
+              ]}
             />
           </div>
 
-          <div className='col-span-2  text-center'>
+          <div className='col-span-2 text-center mt-8'>
             <div className='mb-4 border-t-4 border-b-4 py-4 border-green-600 rounded-lg'>
               <p className='pb-4'>[ copy to clipboard ]</p>
 
@@ -110,7 +98,7 @@ const App: React.FC = () => {
                 </button>
               </div>
             </div>
-            <button className='btn'>
+            <button className='btn mt-8'>
               <a
                 href='https://github.com/joshxfi/gh-stats-generator'
                 target='_blank'
@@ -122,7 +110,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <div className='flex flex-col items-center w-full mt-8'>
+        <div className='flex flex-col items-center w-full'>
           {username === '' ? (
             <div className='text-lg border-b-4 border-green-400 dmd:hidden'>
               <h1>input your username 😸</h1>

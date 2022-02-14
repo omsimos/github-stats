@@ -3,20 +3,12 @@
 @tailwind utilities;
 
 @layer components {
-  .input {
-    @apply mb-2 bg-gray-700 outline-none px-4 h-10 rounded-lg w-full;
-  }
-
-  .choices {
-    @apply flex flex-col mr-8 mt-4 w-full;
-  }
-
   .link {
     @apply hover:text-gray-400 transition duration-300 text-sm;
   }
 
   .btn {
-    @apply mb-4 bg-gray-800 h-10 w-full rounded-lg shadow-lg transition duration-300 hover:bg-gray-700 focus:ring ring-gray-600 ring-offset-4 ring-offset-gray-900 text-base;
+    @apply mb-4 bg-gray-800 h-10 w-full rounded shadow-lg transition duration-300 hover:bg-gray-700 focus:ring ring-gray-500 ring-offset-4 ring-offset-gray-900 text-base;
   }
 
   .output {
@@ -27,13 +19,9 @@
     @apply text-green-400 md:text-xs;
   }
 
-  option {
-    @apply text-base;
+  .input {
+    @apply relative w-full py-2 text-left bg-gray-700 rounded text-sm lg:text-base outline-none h-[40px] px-[20px];
   }
-}
-
-select {
-  cursor: pointer;
 }
 
 ::selection {
