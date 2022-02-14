@@ -20,7 +20,7 @@
   }
 
   .input {
-    @apply relative w-full py-2 text-left bg-gray-700 rounded text-sm lg:text-base outline-none h-[40px] px-[20px];
+    @apply relative w-full py-2 text-left bg-gray-700 rounded text-sm lg:text-base outline-none h-[40px] px-[20px] mt-1;
   }
 }
 

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Footer, Header, Select, IChoice } from './components';
-import { themes } from './data';
+import { Footer, Header, Select } from './components';
+import { themes, countPrivateCommits, showBorder } from './data';
 
 const App: React.FC = () => {
   const [username, setUsername] = useState('');
-  const [theme, setTheme] = useState({} as IChoice);
-  const [border, setBorder] = useState({} as IChoice);
-  const [countPrivate, setCountPrivate] = useState({} as IChoice);
+  const [theme, setTheme] = useState(themes[14]);
+  const [border, setBorder] = useState(showBorder[0]);
+  const [countPrivate, setCountPrivate] = useState(countPrivateCommits[0]);
 
   const ghStats = `https://github-readme-stats.vercel.app/api?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&count_private=${countPrivate}`;
 
@@ -26,7 +26,7 @@ const App: React.FC = () => {
         <div className='flex flex-col w-full'>
           <div className='grid grid-cols-2 gap-x-4 gap-y-8'>
             <div className='flex flex-col w-full'>
-              <label>username</label>
+              <label>github username</label>
               <input
                 spellCheck='false'
                 className='input'
@@ -39,29 +39,23 @@ const App: React.FC = () => {
 
             <Select
               label='theme'
-              defaultValue={themes[14]}
+              defaultValue={theme}
               onChange={(e) => setTheme(e)}
               options={themes}
             />
 
             <Select
-              defaultValue={{ value: 'true', name: 'Show Private Commits' }}
+              defaultValue={countPrivate}
               onChange={(e) => setCountPrivate(e)}
               label='private commits'
-              options={[
-                { value: 'true', name: 'Show Private Commits' },
-                { value: 'false', name: 'Hide Private Commits' },
-              ]}
+              options={countPrivateCommits}
             />
 
             <Select
-              defaultValue={{ value: 'true', name: 'Show Border' }}
+              defaultValue={border}
               onChange={(e) => setBorder(e)}
-              label='show border'
-              options={[
-                { value: 'true', name: 'Hide Border' },
-                { value: 'false', name: 'Show Border' },
-              ]}
+              label='border'
+              options={showBorder}
             />
           </div>
 

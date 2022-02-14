@@ -44,3 +44,13 @@ export const themes = [
   { name: 'Kacho Ga', value: 'kacho_ga' },
   { name: 'Outrun', value: 'outrun' },
 ];
+
+export const countPrivateCommits = [
+  { value: 'true', name: 'Show Private Commits' },
+  { value: 'false', name: 'Hide Private Commits' },
+];
+
+export const showBorder = [
+  { value: 'true', name: 'Hide Border' },
+  { value: 'false', name: 'Show Border' },
+];
