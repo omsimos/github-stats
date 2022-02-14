@@ -12,7 +12,7 @@
   }
 
   .output {
-    @apply mb-1 outline-none shadow-lg w-[25rem] xl:w-[30rem];
+    @apply mb-1 outline-none shadow-lg w-[25rem] xl:w-[30rem] cursor-pointer;
   }
 
   .attribution {
