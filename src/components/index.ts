@@ -1,4 +1,5 @@
-export { default as Select } from './Select';
-export { default as Footer } from './Footer';
-export { default as Header } from './Header';
-export { default as Result } from './Result';
+export * from './Select';
+export * from './Footer';
+export * from './Header';
+export * from './Result';
+export * from './Preview';

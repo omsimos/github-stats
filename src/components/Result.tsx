@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import toast from 'react-hot-toast';
 import { darkToast } from '../data';
+import { useGithubStats } from '../hooks';
 
 interface ResultProps {
   isOpen: boolean;
@@ -12,7 +13,7 @@ interface ResultProps {
   countPrivate: string;
 }
 
-const Result = ({
+export const Result = ({
   isOpen,
   setIsOpen,
   username,
@@ -20,11 +21,12 @@ const Result = ({
   countPrivate,
   theme,
 }: ResultProps) => {
-  const ghStats = `https://github-readme-stats.vercel.app/api?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&count_private=${countPrivate}`;
-
-  const ghTopLangs = `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&layout=compact`;
-
-  const ghStreak = `https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=${border}`;
+  const { stats, topLanguages, streak } = useGithubStats({
+    username,
+    theme,
+    border,
+    countPrivate,
+  });
 
   const copyToClipboard = (text: string) => {
     if (username) {
@@ -68,29 +70,29 @@ const Result = ({
               <div className='flex w-full flex-col items-center'>
                 <img
                   onClick={() =>
-                    copyToClipboard(`![${username}\'s Stats](${ghStats})`)
+                    copyToClipboard(`![${username}\'s Stats](${stats})`)
                   }
                   className='output'
-                  src={ghStats}
+                  src={stats}
                   alt='github stats'
                 />
 
                 <img
                   onClick={() =>
-                    copyToClipboard(`![${username}\'s Streak](${ghStreak})`)
+                    copyToClipboard(`![${username}\'s Streak](${streak})`)
                   }
                   className='output'
-                  src={ghStreak}
+                  src={streak}
                   alt='github streak'
                 />
                 <img
                   onClick={() =>
                     copyToClipboard(
-                      `![${username}\'s Top Languages](${ghTopLangs})`
+                      `![${username}\'s Top Languages](${topLanguages})`
                     )
                   }
                   className='output'
-                  src={ghTopLangs}
+                  src={topLanguages}
                   alt='github top languages'
                 />
               </div>
@@ -101,5 +103,3 @@ const Result = ({
     </Transition>
   );
 };
-
-export default Result;

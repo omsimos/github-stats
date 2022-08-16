@@ -12,7 +12,12 @@ interface SelectProps {
   defaultValue?: IChoice;
 }
 
-function Select({ label, options, onChange, defaultValue }: SelectProps) {
+export const Select = ({
+  label,
+  options,
+  onChange,
+  defaultValue,
+}: SelectProps) => {
   const [selectedOption, setSelectedOption] = useState(
     defaultValue ?? options[0]
   );
@@ -28,9 +33,9 @@ function Select({ label, options, onChange, defaultValue }: SelectProps) {
         <div className='relative w-full shadow-lg'>
           <Listbox.Button className='input'>
             <span className='block truncate'>{selectedOption.name}</span>
-            <span className='absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
+            <span className='pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2'>
               <HiSelector
-                className='w-5 h-5 text-gray-400'
+                className='h-5 w-5 text-gray-400'
                 aria-hidden='true'
               />
             </span>
@@ -41,14 +46,14 @@ function Select({ label, options, onChange, defaultValue }: SelectProps) {
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
           >
-            <Listbox.Options className='absolute z-20 w-full py-1 mt-1 overflow-auto text-sm bg-gray-700 rounded shadow-lg md:text-base max-h-60'>
+            <Listbox.Options className='absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded bg-gray-700 py-1 text-sm shadow-lg md:text-base'>
               {options.map((item) => (
                 <Listbox.Option
                   key={item.name}
                   className={({ active }) =>
                     `${
                       active ? 'bg-gray-600' : 'bg-gray-700'
-                    } cursor-pointer transition-colors duration-150 select-none relative py-2 pl-10 pr-4`
+                    } relative cursor-pointer select-none py-2 pl-10 pr-4 transition-colors duration-150`
                   }
                   value={item}
                 >
@@ -62,8 +67,8 @@ function Select({ label, options, onChange, defaultValue }: SelectProps) {
                         {item.name}
                       </span>
                       {selected ? (
-                        <span className='text-green-400 absolute inset-y-0 left-0 flex items-center pl-3'>
-                          <HiCheck className='w-5 h-5' aria-hidden='true' />
+                        <span className='absolute inset-y-0 left-0 flex items-center pl-3 text-green-400'>
+                          <HiCheck className='h-5 w-5' aria-hidden='true' />
                         </span>
                       ) : null}
                     </>
@@ -76,6 +81,4 @@ function Select({ label, options, onChange, defaultValue }: SelectProps) {
       </Listbox>
     </div>
   );
-}
-
-export default Select;
+};

@@ -15,6 +15,7 @@ export const darkToast: Partial<Toast> = {
     background: '#2d3748',
     color: '#f9f9f9',
     fontSize: '0.9rem',
+    border: '1px solid #f9f9f9',
   },
   position: 'top-right',
 };

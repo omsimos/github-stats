@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = () => {
+export const Header = () => {
   return (
     <div className='text-center mt-8'>
       <h1 className='md:text-4xl text-2xl font-bold'>GitHub Stats Generator</h1>
@@ -15,5 +15,3 @@ const Header = () => {
     </div>
   );
 };
-
-export default Header;

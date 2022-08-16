@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
-import themes from './themes.json'
-import { Footer, Header, Result, Select } from './components';
-import { countPrivateCommits, showBorder, darkToast } from './data'
+import themes from './themes.json';
+import { countPrivateCommits, showBorder, darkToast } from './data';
+import { Footer, Header, Preview, Result, Select } from './components';
 
 const App: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -111,6 +111,8 @@ const App: React.FC = () => {
             Show Result
           </button>
         </div>
+
+        <Preview />
       </div>
 
       <Footer />
