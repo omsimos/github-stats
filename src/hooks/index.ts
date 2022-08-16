@@ -1,1 +1,1 @@
-export * from './useGithubStats';
+export * from './useGitHubStats';
