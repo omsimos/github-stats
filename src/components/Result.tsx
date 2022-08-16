@@ -43,19 +43,8 @@ const Result = ({
         className='fixed inset-0 z-50 overflow-y-auto bg-gray-900/90'
         onClose={() => setIsOpen(false)}
       >
-        <div className='min-h-screen px-4 text-center grid place-items-center'>
-          <Transition.Child
-            as={Fragment}
-            enter='ease-out duration-300'
-            enterFrom='opacity-0'
-            enterTo='opacity-100'
-            leave='ease-in duration-200'
-            leaveFrom='opacity-100'
-            leaveTo='opacity-0'
-          >
-            <Dialog.Overlay className='fixed inset-0' />
-          </Transition.Child>
-
+        <div className='fixed inset-0' />
+        <Dialog.Panel className='grid min-h-screen place-items-center px-4 text-center'>
           <Transition.Child
             as={Fragment}
             enter='ease-out duration-300'
@@ -74,9 +63,9 @@ const Result = ({
 
                 setIsOpen(false);
               }}
-              className='w-full max-w-md p-6 transform'
+              className='w-full max-w-md transform p-6'
             >
-              <div className='flex flex-col items-center w-full'>
+              <div className='flex w-full flex-col items-center'>
                 <img
                   onClick={() =>
                     copyToClipboard(`![${username}\'s Stats](${ghStats})`)
@@ -107,7 +96,7 @@ const Result = ({
               </div>
             </div>
           </Transition.Child>
-        </div>
+        </Dialog.Panel>
       </Dialog>
     </Transition>
   );
