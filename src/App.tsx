@@ -112,7 +112,7 @@ const App: React.FC = () => {
           </button>
         </div>
 
-        <Preview />
+        <Preview theme={theme.value} countPrivate={countPrivate.value} border={border.value} />
       </div>
 
       <Footer />

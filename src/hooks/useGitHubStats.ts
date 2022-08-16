@@ -1,11 +1,11 @@
-interface IData {
+export interface IStats {
   theme?: string;
   username?: string;
   countPrivate?: string;
   border?: string;
 }
 
-export const useGithubStats = (data: IData) => {
+export const useGithubStats = (data: IStats) => {
   const { theme, username, countPrivate, border } = data;
 
   const stats = `https://github-readme-stats.vercel.app/api?username=${username}&theme=${theme}&show_icons=true&hide_border=${border}&count_private=${countPrivate}`;
