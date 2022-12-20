@@ -20,7 +20,7 @@ This website makes it easier for you to generate beautiful stats for your GitHub
 ## Stats Available
 <img width=400 src='https://github-readme-stats.vercel.app/api?username=joshxfi&theme=vue-dark&show_icons=true&hide_border=true&count_private=true' />
 <img width=400 src='https://github-readme-streak-stats.herokuapp.com/?user=joshxfi&theme=vue-dark&hide_border=true' />
-<img width=400 src='https://github-readme-stats.vercel.app/api/top-langs/?username=joshxfi&theme=vue-dark&show_icons=true&hide_border=true&layout=compact' />
+<img width=400 src='https://github-readme-stats.vercel.app/api/top-langs/?username=Shubh2-0&theme=vue-dark&show_icons=true&hide_border=true&layout=compact' />
 
 ## License
 This repository is licensed under the [MIT](https://github.com/joshxfi/github-stats-generator/blob/main/LICENSE) license.
