@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { type Stats, useGithubStats } from "@/hooks/use-github-stats";
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 export const Preview = ({
   theme,
   countPrivate,
@@ -13,29 +15,68 @@ export const Preview = ({
     countPrivate: "true",
     hideBorder: "true",
   });
+
+  const tabsData = [
+    {
+      name: "Stats",
+      value: "stats",
+      content: () => (
+        <Image
+          width={400}
+          height={150}
+          className="w-full output"
+          src={stats}
+          alt="github stats"
+        />
+      ),
+    },
+    {
+      name: "Top Languages",
+      value: "languages",
+      content: () => (
+        <Image
+          width={300}
+          height={150}
+          className="w-full output"
+          src={topLanguages}
+          alt="github top languages"
+        />
+      ),
+    },
+    {
+      name: "Streak",
+      value: "streak",
+      content: () => (
+        <Image
+          width={300}
+          height={150}
+          className="w-full output"
+          src={streak}
+          alt="github streak"
+        />
+      ),
+    },
+  ];
+
   return (
-    <section className="mt-12 flex flex-col gap-2">
-      <Image
-        width={400}
-        height={150}
-        className="w-full output"
-        src={stats}
-        alt="github stats"
-      />
-      <Image
-        width={300}
-        height={150}
-        className="w-full output"
-        src={topLanguages}
-        alt="github top languages"
-      />
-      <Image
-        width={300}
-        height={150}
-        className="w-full output"
-        src={streak}
-        alt="github streak"
-      />
-    </section>
+    <Tabs defaultValue="stats" className="w-full mt-5">
+      <TabsList className="w-full bg-transparent px-0 flex mb-5">
+        {tabsData.map(({ name, value }) => (
+          <TabsTrigger
+            key={value}
+            value={value}
+            className="w-full data-[state=active]:border-primary/50 border-secondary transition-color border-b rounded-none"
+          >
+            {name}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+
+      {tabsData.map(({ content, value }) => (
+        <TabsContent key={value} value={value} className="w-full">
+          {content()}
+        </TabsContent>
+      ))}
+    </Tabs>
   );
 };
