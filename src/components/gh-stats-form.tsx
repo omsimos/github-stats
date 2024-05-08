@@ -66,10 +66,7 @@ export function GhStatsForm() {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full space-y-6 max-w-md mx-auto"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
         <div className="flex items-end gap-2">
           <FormField
             control={form.control}
