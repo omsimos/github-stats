@@ -63,9 +63,15 @@ export function GhStatsForm() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
+    const { username, theme, hideBorder, countPrivate } = data;
+
     toast("You submitted the following values:", {
       description: JSON.stringify(data, null, 2),
     });
+
+    push(
+      `/user/${username}?theme=${theme}&hideBorder=${hideBorder}&countPrivate=${countPrivate}`
+    );
   }
 
   return (

@@ -1,19 +1,24 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import { type Stats, useGithubStats } from "@/hooks/use-github-stats";
-
+import { useGithubStats } from "@/hooks/use-github-stats";
+import { useParams, useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export const Preview = ({
-  theme,
-  countPrivate,
-  hideBorder,
-}: Omit<Stats, "username">) => {
+export const Preview = () => {
+  const searchParams = useSearchParams();
+
+  const { username } = useParams<{ username: string }>();
+  const theme = searchParams.get("theme") || "tokyonight";
+  const countPrivate = searchParams.get("countPrivate") || "true";
+  const hideBorder = searchParams.get("hideBorder") || "true";
+
   const { stats, topLanguages, streak } = useGithubStats({
-    username: "hyamero",
-    theme: "tokyonight",
-    countPrivate: "true",
-    hideBorder: "true",
+    username: username ?? "hyamero",
+    theme,
+    countPrivate,
+    hideBorder,
   });
 
   const tabsData = [
