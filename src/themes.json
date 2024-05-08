@@ -1,0 +1,178 @@
+[
+  {
+    "label": "Default",
+    "value": "default"
+  },
+  {
+    "label": "Dark",
+    "value": "dark"
+  },
+  {
+    "label": "Radical",
+    "value": "radical"
+  },
+  {
+    "label": "Merko",
+    "value": "merko"
+  },
+  {
+    "label": "Gruvbox",
+    "value": "gruvbox"
+  },
+  {
+    "label": "Tokyo Night",
+    "value": "tokyonight"
+  },
+  {
+    "label": "One Dark",
+    "value": "onedark"
+  },
+  {
+    "label": "Cobalt",
+    "value": "cobalt"
+  },
+  {
+    "label": "Synthwave",
+    "value": "synthwave"
+  },
+  {
+    "label": "High Contrast",
+    "value": "highcontrast"
+  },
+  {
+    "label": "Dracula",
+    "value": "dracula"
+  },
+  {
+    "label": "Prussian",
+    "value": "prussian"
+  },
+  {
+    "label": "Monokai",
+    "value": "monokai"
+  },
+  {
+    "label": "Vue",
+    "value": "vue"
+  },
+  {
+    "label": "Vue Dark",
+    "value": "vue-dark"
+  },
+  {
+    "label": "Shades of Purple",
+    "value": "shades-of-purple"
+  },
+  {
+    "label": "Nightowl",
+    "value": "nightowl"
+  },
+  {
+    "label": "Buefy",
+    "value": "buefy"
+  },
+  {
+    "label": "Blue-Green",
+    "value": "blue-green"
+  },
+  {
+    "label": "Algolia",
+    "value": "algolia"
+  },
+  {
+    "label": "Great Gatsby",
+    "value": "great-gatsby"
+  },
+  {
+    "label": "Darcula",
+    "value": "darcula"
+  },
+  {
+    "label": "Bear",
+    "value": "bear"
+  },
+  {
+    "label": "Solarized Dark",
+    "value": "solarized-dark"
+  },
+  {
+    "label": "Solarized Light",
+    "value": "solarized-light"
+  },
+  {
+    "label": "Chartreuse Dark",
+    "value": "chartreuse-dark"
+  },
+  {
+    "label": "Nord",
+    "value": "nord"
+  },
+  {
+    "label": "Gotham",
+    "value": "gotham"
+  },
+  {
+    "label": "Material Palenight",
+    "value": "material-palenight"
+  },
+  {
+    "label": "Graywhite",
+    "value": "graywhite"
+  },
+  {
+    "label": "Vision Friendly Dark",
+    "value": "vision-friendly-dark"
+  },
+  {
+    "label": "Ayu Mirage",
+    "value": "ayu-mirage"
+  },
+  {
+    "label": "Midnight Purple",
+    "value": "midnight-purple"
+  },
+  {
+    "label": "Calm",
+    "value": "calm"
+  },
+  {
+    "label": "Flag India",
+    "value": "flag-india"
+  },
+  {
+    "label": "Omni",
+    "value": "omni"
+  },
+  {
+    "label": "React",
+    "value": "react"
+  },
+  {
+    "label": "Jolly",
+    "value": "jolly"
+  },
+  {
+    "label": "Maroongold",
+    "value": "maroongold"
+  },
+  {
+    "label": "Yeblu",
+    "value": "yeblu"
+  },
+  {
+    "label": "Blueberry",
+    "value": "blueberry"
+  },
+  {
+    "label": "Slateorange",
+    "value": "slateorange"
+  },
+  {
+    "label": "Kacho Ga",
+    "value": "kacho_ga"
+  },
+  {
+    "label": "Outrun",
+    "value": "outrun"
+  }
+]
