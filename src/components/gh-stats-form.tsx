@@ -1,19 +1,18 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { toast } from "sonner";
+import { cn } from "@/lib/utils";
+import themes from "@/themes.json";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
 
 import {
@@ -31,11 +30,12 @@ import {
   CommandList,
 } from "@/components/ui/command";
 
+import { Icons } from "./icons";
+import { Label } from "./ui/label";
 import { Input } from "@/components/ui/input";
-import { toast } from "sonner";
-
-import themes from "@/themes.json";
-import { cn } from "@/lib/utils";
+import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
+import { Check, ChevronsUpDown } from "lucide-react";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -44,6 +44,8 @@ const FormSchema = z.object({
   theme: z.string({
     required_error: "Please select a theme.",
   }),
+  showBorder: z.boolean(),
+  showCommits: z.boolean(),
 });
 
 export function GhStatsForm() {
@@ -51,6 +53,8 @@ export function GhStatsForm() {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       username: "",
+      showBorder: false,
+      showCommits: true,
     },
   });
 
@@ -62,7 +66,10 @@ export function GhStatsForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full space-y-6 max-w-md mx-auto"
+      >
         <div className="flex items-end gap-2">
           <FormField
             control={form.control}
@@ -73,7 +80,7 @@ export function GhStatsForm() {
                 <FormControl>
                   <Input placeholder="omsimos" {...field} />
                 </FormControl>
-                <FormMessage />
+                {/* <FormMessage /> */}
               </FormItem>
             )}
           />
@@ -102,7 +109,7 @@ export function GhStatsForm() {
                       </Button>
                     </FormControl>
                   </PopoverTrigger>
-                  <PopoverContent className="w-full p-0">
+                  <PopoverContent className="w-[200px] p-0">
                     <Command>
                       <CommandInput placeholder="Search theme..." />
                       <CommandEmpty>No theme found.</CommandEmpty>
@@ -132,10 +139,66 @@ export function GhStatsForm() {
                     </Command>
                   </PopoverContent>
                 </Popover>
-                <FormMessage />
+                {/* <FormMessage /> */}
               </FormItem>
             )}
           />
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="outline" className="text-muted-foreground">
+                <Icons.adjust className="text-muted-foreground" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto px-7">
+              <p className="text-muted-foreground mb-5 text-sm">
+                Update card preferences.
+              </p>
+
+              <div className="space-y-1">
+                <FormField
+                  control={form.control}
+                  name="showBorder"
+                  render={({ field }) => (
+                    <div className="flex items-center gap-3">
+                      <FormItem>
+                        <FormControl>
+                          <Switch
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                            id="privCommits"
+                          />
+                        </FormControl>
+                      </FormItem>
+                      <Label htmlFor="priv-commits" className="mb-1">
+                        Show card border
+                      </Label>
+                    </div>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="showCommits"
+                  render={({ field }) => (
+                    <div className="flex items-center gap-3">
+                      <FormItem>
+                        <FormControl>
+                          <Switch
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                            id="privCommits"
+                          />
+                        </FormControl>
+                      </FormItem>
+                      <Label htmlFor="priv-commits" className="mb-1">
+                        Show private commits
+                      </Label>
+                    </div>
+                  )}
+                />
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
 
         <Button type="submit" className="w-full">
