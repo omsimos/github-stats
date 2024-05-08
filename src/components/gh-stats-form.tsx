@@ -36,6 +36,7 @@ import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Check, ChevronsUpDown } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -44,17 +45,20 @@ const FormSchema = z.object({
   theme: z.string({
     required_error: "Please select a theme.",
   }),
-  showBorder: z.boolean(),
-  showCommits: z.boolean(),
+  hideBorder: z.boolean(),
+  countPrivate: z.boolean(),
 });
 
 export function GhStatsForm() {
+  const { push } = useRouter();
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       username: "",
-      showBorder: false,
-      showCommits: true,
+      hideBorder: true,
+      countPrivate: true,
+      theme: "default",
     },
   });
 
@@ -95,7 +99,9 @@ export function GhStatsForm() {
                         role="combobox"
                         className={cn(
                           "w-full justify-between",
-                          !field.value && "text-muted-foreground"
+                          !field.value || field.value === "default"
+                            ? "text-muted-foreground"
+                            : ""
                         )}
                       >
                         {field.value
@@ -154,7 +160,7 @@ export function GhStatsForm() {
               <div className="space-y-1">
                 <FormField
                   control={form.control}
-                  name="showBorder"
+                  name="hideBorder"
                   render={({ field }) => (
                     <div className="flex items-center gap-3">
                       <FormItem>
@@ -167,7 +173,7 @@ export function GhStatsForm() {
                         </FormControl>
                       </FormItem>
                       <Label htmlFor="priv-commits" className="mb-1">
-                        Show card border
+                        Hide Card Border
                       </Label>
                     </div>
                   )}
@@ -175,7 +181,7 @@ export function GhStatsForm() {
 
                 <FormField
                   control={form.control}
-                  name="showCommits"
+                  name="countPrivate"
                   render={({ field }) => (
                     <div className="flex items-center gap-3">
                       <FormItem>
@@ -188,7 +194,7 @@ export function GhStatsForm() {
                         </FormControl>
                       </FormItem>
                       <Label htmlFor="priv-commits" className="mb-1">
-                        Show private commits
+                        Count Private Commits
                       </Label>
                     </div>
                   )}
