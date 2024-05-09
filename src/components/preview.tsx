@@ -22,6 +22,16 @@ export const Preview = () => {
     hideBorder,
   });
 
+  const [imageLoad, setImageLoad] = useState({
+    stats: true,
+    languages: true,
+    streak: true,
+  });
+
+  const handleImageLoad = (key: string) => {
+    setImageLoad((prev) => ({ ...prev, [key]: false }));
+  };
+
   enum tabValues {
     "stats",
     "languages",
@@ -65,6 +75,10 @@ export const Preview = () => {
 
       {tabsData.map(({ value, imgSrc, alt }) => (
         <TabsContent key={value} value={value} className="w-full relative">
+          {imageLoad[value as keyof typeof tabValues] === true && (
+            <Icons.spinner className="absolute top-14 left-1/2 -translate-x-1/2" />
+          )}
+
           <Image
             width={400}
             height={150}
@@ -72,6 +86,7 @@ export const Preview = () => {
             src={imgSrc}
             alt={alt}
             priority
+            onLoad={() => handleImageLoad(value)}
           />
         </TabsContent>
       ))}
