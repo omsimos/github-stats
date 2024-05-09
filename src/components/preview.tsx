@@ -6,10 +6,13 @@ import { useGithubStats } from "@/hooks/use-github-stats";
 import { useParams, useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Icons } from "./icons";
+import { Dialog, DialogContent } from "./ui/dialog";
 
 export const Preview = () => {
   const searchParams = useSearchParams();
   const themePreview = searchParams.get("theme_preview");
+
+  const [openDialog, setOpenDialog] = useState("");
 
   const { username } = useParams<{ username: string }>();
   const theme = searchParams.get("theme") || themePreview || "tokyonight";
@@ -22,24 +25,6 @@ export const Preview = () => {
     countPrivate,
     hideBorder,
   });
-
-  const [imageLoad, setImageLoad] = useState({
-    stats: true,
-    languages: true,
-    streak: true,
-  });
-
-  const handleImageLoad = (key: string, loadStart?: boolean) => {
-    if (loadStart) {
-      setImageLoad((prev) => ({ ...prev, [key]: true }));
-    } else setImageLoad((prev) => ({ ...prev, [key]: false }));
-  };
-
-  enum tabValues {
-    "stats",
-    "languages",
-    "streak",
-  }
 
   const tabsData = [
     {
@@ -81,23 +66,57 @@ export const Preview = () => {
         </p>
       )}
       {tabsData.map(({ value, imgSrc, alt }) => (
-        <TabsContent key={value} value={value} className="w-full relative">
-          {imageLoad[value as keyof typeof tabValues] === true && (
-            <Icons.spinner className="absolute top-14 left-1/2 -translate-x-1/2" />
-          )}
-
-          <Image
-            width={400}
-            height={150}
-            className="w-full output"
-            src={imgSrc}
-            alt={alt}
-            priority
-            onLoadStart={() => handleImageLoad(value, true)}
-            onLoad={() => handleImageLoad(value)}
-          />
-        </TabsContent>
+        <React.Fragment key={value}>
+          <Dialog
+            key={value}
+            open={openDialog === value}
+            onOpenChange={() =>
+              setOpenDialog(openDialog === value ? "" : value)
+            }
+          >
+            <DialogContent>
+              <ImgPreview value={value} imgSrc={imgSrc} alt={alt} />
+            </DialogContent>
+          </Dialog>
+          <div
+            className="w-full cursor-pointer"
+            onClick={() => setOpenDialog(value)}
+          >
+            <ImgPreview value={value} imgSrc={imgSrc} alt={alt} />
+          </div>
+        </React.Fragment>
       ))}
     </Tabs>
+  );
+};
+
+const ImgPreview = ({
+  value,
+  imgSrc,
+  alt,
+}: {
+  value: string;
+  imgSrc: string;
+  alt: string;
+}) => {
+  const [imgLoad, setImgLoad] = useState(true);
+
+  return (
+    <TabsContent key={value} value={value} className="w-full relative">
+      {imgLoad && (
+        <Icons.spinner className="absolute top-14 left-1/2 -translate-x-1/2" />
+      )}
+
+      <Image
+        width={400}
+        height={150}
+        className="w-full output"
+        src={imgSrc}
+        alt={alt}
+        priority
+        onLoadStart={() => setImgLoad(true)}
+        onLoad={() => setImgLoad(false)}
+      />
+    </TabsContent>
   );
 };
