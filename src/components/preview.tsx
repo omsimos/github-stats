@@ -72,7 +72,11 @@ export const Preview = () => {
           </TabsTrigger>
         ))}
       </TabsList>
-
+      {!username && (
+        <p className="text-sm italic text-muted-foreground">
+          This is only a preview, generate stats to get your result.
+        </p>
+      )}
       {tabsData.map(({ value, imgSrc, alt }) => (
         <TabsContent key={value} value={value} className="w-full relative">
           {imageLoad[value as keyof typeof tabValues] === true && (
