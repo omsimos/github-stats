@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useGithubStats } from "@/hooks/use-github-stats";
 import { useParams, useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Icons } from "./icons";
 
 export const Preview = () => {
   const searchParams = useSearchParams();
@@ -21,48 +22,30 @@ export const Preview = () => {
     hideBorder,
   });
 
+  enum tabValues {
+    "stats",
+    "languages",
+    "streak",
+  }
+
   const tabsData = [
     {
       name: "Stats",
       value: "stats",
-      content: () => (
-        <Image
-          width={400}
-          height={150}
-          className="w-full output"
-          src={stats}
-          alt="github stats"
-          priority
-        />
-      ),
+      imgSrc: stats,
+      alt: "github stats",
     },
     {
       name: "Top Languages",
       value: "languages",
-      content: () => (
-        <Image
-          width={300}
-          height={150}
-          className="w-full output"
-          src={topLanguages}
-          alt="github top languages"
-          priority
-        />
-      ),
+      imgSrc: topLanguages,
+      alt: "github top languages",
     },
     {
       name: "Streak",
       value: "streak",
-      content: () => (
-        <Image
-          width={300}
-          height={150}
-          className="w-full output"
-          src={streak}
-          alt="github streak"
-          priority
-        />
-      ),
+      imgSrc: streak,
+      alt: "github streak",
     },
   ];
 
@@ -80,9 +63,16 @@ export const Preview = () => {
         ))}
       </TabsList>
 
-      {tabsData.map(({ content, value }) => (
-        <TabsContent key={value} value={value} className="w-full">
-          {content()}
+      {tabsData.map(({ value, imgSrc, alt }) => (
+        <TabsContent key={value} value={value} className="w-full relative">
+          <Image
+            width={400}
+            height={150}
+            className="w-full output"
+            src={imgSrc}
+            alt={alt}
+            priority
+          />
         </TabsContent>
       ))}
     </Tabs>
