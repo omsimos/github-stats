@@ -37,6 +37,7 @@ import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -50,6 +51,8 @@ const FormSchema = z.object({
 });
 
 export function GhStatsForm() {
+  const [loading, setLoading] = useState(false);
+
   const { push } = useRouter();
   const searchParams = useSearchParams();
   const themePreview = searchParams.get("theme_preview");
@@ -66,6 +69,8 @@ export function GhStatsForm() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     const { username, theme, hideBorder, countPrivate } = data;
+
+    setLoading(true);
 
     toast("You submitted the following values:", {
       description: JSON.stringify(data, null, 2),
@@ -219,8 +224,8 @@ export function GhStatsForm() {
           </Popover>
         </div>
 
-        <Button type="submit" className="w-full">
-          Generate Stats
+        <Button type="submit" disabled={loading} className="w-full">
+          {!loading ? "Generate Stats" : <Icons.spinner />}
         </Button>
       </form>
     </Form>
