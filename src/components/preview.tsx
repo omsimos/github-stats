@@ -9,14 +9,15 @@ import { Icons } from "./icons";
 
 export const Preview = () => {
   const searchParams = useSearchParams();
+  const themePreview = searchParams.get("theme_preview");
 
   const { username } = useParams<{ username: string }>();
-  const theme = searchParams.get("theme") || "tokyonight";
+  const theme = searchParams.get("theme") || themePreview || "tokyonight";
   const countPrivate = searchParams.get("count_private") || "true";
   const hideBorder = searchParams.get("hide_border") || "true";
 
   const { stats, topLanguages, streak } = useGithubStats({
-    username: username ?? "hyamero",
+    username: username ?? "leerob",
     theme,
     countPrivate,
     hideBorder,
@@ -28,8 +29,10 @@ export const Preview = () => {
     streak: true,
   });
 
-  const handleImageLoad = (key: string) => {
-    setImageLoad((prev) => ({ ...prev, [key]: false }));
+  const handleImageLoad = (key: string, loadStart?: boolean) => {
+    if (loadStart) {
+      setImageLoad((prev) => ({ ...prev, [key]: true }));
+    } else setImageLoad((prev) => ({ ...prev, [key]: false }));
   };
 
   enum tabValues {
@@ -90,6 +93,7 @@ export const Preview = () => {
             src={imgSrc}
             alt={alt}
             priority
+            onLoadStart={() => handleImageLoad(value, true)}
             onLoad={() => handleImageLoad(value)}
           />
         </TabsContent>

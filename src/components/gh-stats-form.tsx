@@ -36,7 +36,7 @@ import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Check, ChevronsUpDown } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -51,6 +51,8 @@ const FormSchema = z.object({
 
 export function GhStatsForm() {
   const { push } = useRouter();
+  const searchParams = useSearchParams();
+  const themePreview = searchParams.get("theme_preview");
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -58,7 +60,7 @@ export function GhStatsForm() {
       username: "",
       hideBorder: true,
       countPrivate: true,
-      theme: "default",
+      theme: themePreview || "default",
     },
   });
 
@@ -72,6 +74,12 @@ export function GhStatsForm() {
     push(
       `/user/${username}?theme=${theme}&hide_border=${hideBorder}&count_private=${countPrivate}`
     );
+  }
+
+  function updateThemePreview(_theme: string) {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("theme_preview", _theme);
+    window.history.pushState(null, "", `?${params.toString()}`);
   }
 
   return (
@@ -130,6 +138,7 @@ export function GhStatsForm() {
                               key={theme.value}
                               onSelect={() => {
                                 form.setValue("theme", theme.value);
+                                updateThemePreview(theme.value);
                               }}
                             >
                               <Check
