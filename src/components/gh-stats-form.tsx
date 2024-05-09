@@ -70,7 +70,7 @@ export function GhStatsForm() {
     });
 
     push(
-      `/user/${username}?theme=${theme}&hideBorder=${hideBorder}&countPrivate=${countPrivate}`
+      `/user/${username}?theme=${theme}&hide_border=${hideBorder}&count_private=${countPrivate}`
     );
   }
 

@@ -11,8 +11,8 @@ export const Preview = () => {
 
   const { username } = useParams<{ username: string }>();
   const theme = searchParams.get("theme") || "tokyonight";
-  const countPrivate = searchParams.get("countPrivate") || "true";
-  const hideBorder = searchParams.get("hideBorder") || "true";
+  const countPrivate = searchParams.get("count_private") || "true";
+  const hideBorder = searchParams.get("hide_border") || "true";
 
   const { stats, topLanguages, streak } = useGithubStats({
     username: username ?? "hyamero",
@@ -32,6 +32,7 @@ export const Preview = () => {
           className="w-full output"
           src={stats}
           alt="github stats"
+          priority
         />
       ),
     },
@@ -45,6 +46,7 @@ export const Preview = () => {
           className="w-full output"
           src={topLanguages}
           alt="github top languages"
+          priority
         />
       ),
     },
@@ -58,6 +60,7 @@ export const Preview = () => {
           className="w-full output"
           src={streak}
           alt="github streak"
+          priority
         />
       ),
     },
