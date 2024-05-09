@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import NextTopLoader from "nextjs-toploader";
 import Navbar from "@/components/navbar";
 import "./globals.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <Toaster />
+          <NextTopLoader />
           {children}
         </ThemeProvider>
       </body>

@@ -25,6 +25,7 @@
     "lucide-react": "^0.378.0",
     "next": "14.2.3",
     "next-themes": "^0.3.0",
+    "nextjs-toploader": "^1.6.12",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
