@@ -25,7 +25,7 @@ export const Preview = () => {
 
   const searchParams = useSearchParams();
   const themePreview = searchParams.get("theme_preview");
-  const baseTheme = currentTheme === "dark" ? "tokyonight" : "github";
+  const baseTheme = currentTheme === "light" ? "github" : "tokyonight";
 
   const [openDialog, setOpenDialog] = useState("");
 
@@ -118,7 +118,7 @@ const ImgPreview = ({
       Icon: () => <Icons.clipboard />,
     },
     {
-      type: "link",
+      type: "url",
       Icon: () => <Icons.link />,
     },
     {
@@ -133,13 +133,13 @@ const ImgPreview = ({
 
       if (type === "markdown") {
         copiedText = `![GitHub Stats](${imgSrc})`;
-      } else if (type === "link") {
+      } else if (type === "url") {
         copiedText = imgSrc;
       } else if (type === "code") {
         copiedText = `<img src="${imgSrc}" alt="${username}'s GitHub Stats" />`;
       }
       navigator.clipboard.writeText(copiedText);
-      toast.success("Copied to Clipboard!");
+      toast.success(`Copied to Clipboard as ${type}.`);
     }
   };
 
