@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { toast } from "sonner";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -100,6 +101,37 @@ const ImgPreview = ({
 
   const { username } = useParams<{ username: string }>();
 
+  const copyVariants = [
+    {
+      type: "markdown",
+      Icon: () => <Icons.clipboard />,
+    },
+    {
+      type: "link",
+      Icon: () => <Icons.link />,
+    },
+    {
+      type: "code",
+      Icon: () => <Icons.code />,
+    },
+  ];
+
+  const copyToClipboard = (type: string) => {
+    if (username) {
+      let copiedText = "";
+
+      if (type === "markdown") {
+        copiedText = `![GitHub Stats](${imgSrc})`;
+      } else if (type === "link") {
+        copiedText = imgSrc;
+      } else if (type === "code") {
+        copiedText = `<img src="${imgSrc}" alt="${username}'s GitHub Stats" />`;
+      }
+      navigator.clipboard.writeText(copiedText);
+      toast.success("Copied to Clipboard!");
+    }
+  };
+
   return (
     <>
       <Dialog
@@ -150,15 +182,16 @@ const ImgPreview = ({
         {username && (
           <div className="mt-2 sm:mt-0 flex sm:flex-col justify-between">
             <div className="sm:flex-col flex gap-2 [&>*>*]:h-5">
-              <Button variant="outline" size="icon">
-                <Icons.clipboard />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Icons.link />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Icons.code />
-              </Button>
+              {copyVariants.map(({ type, Icon }) => (
+                <Button
+                  key={type}
+                  variant="outline"
+                  size="icon"
+                  onClick={() => copyToClipboard(type)}
+                >
+                  <Icon />
+                </Button>
+              ))}
             </div>
 
             <Button asChild variant="outline" size="icon" className="[&>*]:h-5">
