@@ -11,6 +11,12 @@ import { Dialog, DialogContent } from "./ui/dialog";
 import { useGithubStats } from "@/hooks/use-github-stats";
 import { useParams, useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export const Preview = () => {
   const searchParams = useSearchParams();
@@ -181,16 +187,23 @@ const ImgPreview = ({
 
         {username && (
           <div className="mt-2 sm:mt-0 flex sm:flex-col justify-between">
-            <div className="sm:flex-col flex gap-2 [&>*>*]:h-5">
+            <div className="sm:flex-col flex gap-2">
               {copyVariants.map(({ type, Icon }) => (
-                <Button
-                  key={type}
-                  variant="outline"
-                  size="icon"
-                  onClick={() => copyToClipboard(type)}
-                >
-                  <Icon />
-                </Button>
+                <TooltipProvider key={type}>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="[&>*]:h-5"
+                        onClick={() => copyToClipboard(type)}
+                      >
+                        <Icon />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Copy as {type}</TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               ))}
             </div>
 
