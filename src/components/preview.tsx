@@ -10,6 +10,7 @@ import { Button } from "./ui/button";
 import { Dialog, DialogContent } from "./ui/dialog";
 import { useGithubStats } from "@/hooks/use-github-stats";
 import { useParams, useSearchParams } from "next/navigation";
+import { SkeletonCard } from "./skeleton-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Tooltip,
@@ -145,9 +146,11 @@ const ImgPreview = ({
         onOpenChange={() => setOpenDialog(openDialog === value ? "" : value)}
       >
         <DialogContent className="sm:p-10">
-          <div>
+          <div className="relative">
             {imgLoad && (
-              <Icons.spinner className="absolute top-14 left-1/2 -translate-x-1/2" />
+              <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full">
+                <SkeletonCard />
+              </div>
             )}
 
             <Image
@@ -164,26 +167,26 @@ const ImgPreview = ({
         </DialogContent>
       </Dialog>
 
-      <TabsContent
-        key={value}
-        value={value}
-        className="w-full relative sm:flex gap-3"
-      >
-        {imgLoad && (
-          <Icons.spinner className="absolute top-14 left-1/2 -translate-x-1/2" />
-        )}
+      <TabsContent key={value} value={value} className="sm:flex gap-3">
+        <div className="relative w-full">
+          {imgLoad && (
+            <div className="absolute top-0 left-0 w-full">
+              <SkeletonCard />
+            </div>
+          )}
 
-        <Image
-          width={400}
-          height={150}
-          className="w-full output cursor-pointer"
-          src={imgSrc}
-          alt={alt}
-          priority
-          onLoadStart={() => setImgLoad(true)}
-          onLoad={() => setImgLoad(false)}
-          onClick={() => setOpenDialog(value)}
-        />
+          <Image
+            width={400}
+            height={150}
+            className="w-full output cursor-pointer"
+            src={imgSrc}
+            alt={alt}
+            priority
+            onLoadStart={() => setImgLoad(true)}
+            onLoad={() => setImgLoad(false)}
+            onClick={() => setOpenDialog(value)}
+          />
+        </div>
 
         {username && (
           <div className="mt-2 sm:mt-0 flex sm:flex-col justify-between">
