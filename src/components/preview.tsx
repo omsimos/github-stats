@@ -2,13 +2,14 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+
+import { Icons } from "./icons";
+import { Button } from "./ui/button";
+import { Dialog, DialogContent } from "./ui/dialog";
 import { useGithubStats } from "@/hooks/use-github-stats";
 import { useParams, useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Icons } from "./icons";
-import { Dialog, DialogContent } from "./ui/dialog";
-import { Button } from "./ui/button";
-import Link from "next/link";
 
 export const Preview = () => {
   const searchParams = useSearchParams();
@@ -105,7 +106,7 @@ const ImgPreview = ({
         open={openDialog === value}
         onOpenChange={() => setOpenDialog(openDialog === value ? "" : value)}
       >
-        <DialogContent>
+        <DialogContent className="sm:p-10">
           <div>
             {imgLoad && (
               <Icons.spinner className="absolute top-14 left-1/2 -translate-x-1/2" />
