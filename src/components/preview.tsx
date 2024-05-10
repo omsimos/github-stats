@@ -171,56 +171,63 @@ const ImgPreview = ({
         </DialogContent>
       </Dialog>
 
-      <TabsContent key={value} value={value} className="sm:flex gap-3">
-        <div className="relative w-full">
-          {imgLoad && (
-            <div className="absolute top-0 left-0 w-full">
-              <SkeletonCard />
+      <TabsContent key={value} value={value}>
+        <div className="sm:flex gap-3">
+          <div className="relative w-full">
+            {imgLoad && (
+              <div className="absolute top-0 left-0 w-full">
+                <SkeletonCard />
+              </div>
+            )}
+
+            <Image
+              width={400}
+              height={150}
+              className="w-full output cursor-pointer"
+              src={imgSrc}
+              alt={alt}
+              priority
+              onLoadStart={() => setImgLoad(true)}
+              onLoad={() => setImgLoad(false)}
+              onClick={() => setOpenDialog(value)}
+            />
+          </div>
+
+          {username && (
+            <div className="mt-2 sm:mt-0 flex sm:flex-col justify-between">
+              <div className="sm:flex-col flex gap-2">
+                {copyVariants.map(({ type, Icon }) => (
+                  <TooltipProvider key={type}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="[&>*]:h-5"
+                          onClick={() => copyToClipboard(type)}
+                        >
+                          <Icon />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>Copy as {type}</TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                ))}
+              </div>
+
+              <Button
+                asChild
+                variant="outline"
+                size="icon"
+                className="[&>*]:h-5"
+              >
+                <Link href="/">
+                  <Icons.back className="h-5" />
+                </Link>
+              </Button>
             </div>
           )}
-
-          <Image
-            width={400}
-            height={150}
-            className="w-full output cursor-pointer"
-            src={imgSrc}
-            alt={alt}
-            priority
-            onLoadStart={() => setImgLoad(true)}
-            onLoad={() => setImgLoad(false)}
-            onClick={() => setOpenDialog(value)}
-          />
         </div>
-
-        {username && (
-          <div className="mt-2 sm:mt-0 flex sm:flex-col justify-between">
-            <div className="sm:flex-col flex gap-2">
-              {copyVariants.map(({ type, Icon }) => (
-                <TooltipProvider key={type}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        className="[&>*]:h-5"
-                        onClick={() => copyToClipboard(type)}
-                      >
-                        <Icon />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>Copy as {type}</TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              ))}
-            </div>
-
-            <Button asChild variant="outline" size="icon" className="[&>*]:h-5">
-              <Link href="/">
-                <Icons.back className="h-5" />
-              </Link>
-            </Button>
-          </div>
-        )}
       </TabsContent>
     </>
   );
