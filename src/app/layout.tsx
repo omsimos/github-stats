@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   robots: "index, follow",
   openGraph: {
     type: "website",
-    title: "Frameyu — Supercharge Your Campaign!",
+    title: "GitHub Stats Generator — Omsimos",
     description:
-      "Effortlessly manage and publish custom frames for your marketing campaigns with Frameyu, the free online frame publisher. Create shareable links to boost engagement. Download in high-quality images, watermark-free. Get started for free today!",
+      "Make your special repository feel special! Generate GitHub README stats with ease! Generate your stats, streaks, & top languages with 40+ themes to choose from!",
     images: [
       "https://github.com/omsimos/github-stats/assets/78056869/ded4ae46-524a-433b-bb54-c7e2c311e5da",
     ],
