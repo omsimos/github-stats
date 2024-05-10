@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTheme } from "next-themes";
 import { toast } from "sonner";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,13 +21,16 @@ import {
 } from "@/components/ui/tooltip";
 
 export const Preview = () => {
+  const { theme: currentTheme } = useTheme();
+
   const searchParams = useSearchParams();
   const themePreview = searchParams.get("theme_preview");
+  const baseTheme = currentTheme === "dark" ? "tokyonight" : "github";
 
   const [openDialog, setOpenDialog] = useState("");
 
   const { username } = useParams<{ username: string }>();
-  const theme = searchParams.get("theme") || themePreview || "tokyonight";
+  const theme = searchParams.get("theme") || themePreview || baseTheme;
   const countPrivate = searchParams.get("count_private") || "true";
   const hideBorder = searchParams.get("hide_border") || "true";
 
