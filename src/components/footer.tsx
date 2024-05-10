@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 
 export default function Footer() {
   return (
-    <footer className="z-[-1] absolute left-0 bottom-0 w-full font-mono py-3">
+    <footer className="w-full font-mono py-3">
       <HoverCard>
         <HoverCardTrigger asChild>
           <p className="text-center text-muted-foreground sm:text-sm text-xs">

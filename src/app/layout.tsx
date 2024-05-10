@@ -6,7 +6,6 @@ import { Toaster } from "@/components/ui/sonner";
 import NextTopLoader from "nextjs-toploader";
 import Navbar from "@/components/navbar";
 import "./globals.css";
-import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.github-stats.omsimos.com"),
@@ -41,7 +40,6 @@ export default function RootLayout({
           <Toaster />
           <NextTopLoader />
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>
