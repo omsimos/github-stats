@@ -1,178 +1,178 @@
 [
   {
-    "name": "Default",
+    "label": "Default",
     "value": "default"
   },
   {
-    "name": "Dark",
+    "label": "Dark",
     "value": "dark"
   },
   {
-    "name": "Radical",
+    "label": "Radical",
     "value": "radical"
   },
   {
-    "name": "Merko",
+    "label": "Merko",
     "value": "merko"
   },
   {
-    "name": "Gruvbox",
+    "label": "Gruvbox",
     "value": "gruvbox"
   },
   {
-    "name": "Tokyo Night",
+    "label": "Tokyo Night",
     "value": "tokyonight"
   },
   {
-    "name": "One Dark",
+    "label": "One Dark",
     "value": "onedark"
   },
   {
-    "name": "Cobalt",
+    "label": "Cobalt",
     "value": "cobalt"
   },
   {
-    "name": "Synthwave",
+    "label": "Synthwave",
     "value": "synthwave"
   },
   {
-    "name": "High Contrast",
+    "label": "High Contrast",
     "value": "highcontrast"
   },
   {
-    "name": "Dracula",
+    "label": "Dracula",
     "value": "dracula"
   },
   {
-    "name": "Prussian",
+    "label": "Prussian",
     "value": "prussian"
   },
   {
-    "name": "Monokai",
+    "label": "Monokai",
     "value": "monokai"
   },
   {
-    "name": "Vue",
+    "label": "Vue",
     "value": "vue"
   },
   {
-    "name": "Vue Dark",
+    "label": "Vue Dark",
     "value": "vue-dark"
   },
   {
-    "name": "Shades of Purple",
+    "label": "Shades of Purple",
     "value": "shades-of-purple"
   },
   {
-    "name": "Nightowl",
+    "label": "Nightowl",
     "value": "nightowl"
   },
   {
-    "name": "Buefy",
+    "label": "Buefy",
     "value": "buefy"
   },
   {
-    "name": "Blue-Green",
+    "label": "Blue-Green",
     "value": "blue-green"
   },
   {
-    "name": "Algolia",
+    "label": "Algolia",
     "value": "algolia"
   },
   {
-    "name": "Great Gatsby",
+    "label": "Great Gatsby",
     "value": "great-gatsby"
   },
   {
-    "name": "Darcula",
+    "label": "Darcula",
     "value": "darcula"
   },
   {
-    "name": "Bear",
+    "label": "Bear",
     "value": "bear"
   },
   {
-    "name": "Solarized Dark",
+    "label": "Solarized Dark",
     "value": "solarized-dark"
   },
   {
-    "name": "Solarized Light",
+    "label": "Solarized Light",
     "value": "solarized-light"
   },
   {
-    "name": "Chartreuse Dark",
+    "label": "Chartreuse Dark",
     "value": "chartreuse-dark"
   },
   {
-    "name": "Nord",
+    "label": "Nord",
     "value": "nord"
   },
   {
-    "name": "Gotham",
+    "label": "Gotham",
     "value": "gotham"
   },
   {
-    "name": "Material Palenight",
+    "label": "Material Palenight",
     "value": "material-palenight"
   },
   {
-    "name": "Graywhite",
+    "label": "Graywhite",
     "value": "graywhite"
   },
   {
-    "name": "Vision Friendly Dark",
+    "label": "Vision Friendly Dark",
     "value": "vision-friendly-dark"
   },
   {
-    "name": "Ayu Mirage",
+    "label": "Ayu Mirage",
     "value": "ayu-mirage"
   },
   {
-    "name": "Midnight Purple",
+    "label": "Midnight Purple",
     "value": "midnight-purple"
   },
   {
-    "name": "Calm",
+    "label": "Calm",
     "value": "calm"
   },
   {
-    "name": "Flag India",
+    "label": "Flag India",
     "value": "flag-india"
   },
   {
-    "name": "Omni",
+    "label": "Omni",
     "value": "omni"
   },
   {
-    "name": "React",
+    "label": "React",
     "value": "react"
   },
   {
-    "name": "Jolly",
+    "label": "Jolly",
     "value": "jolly"
   },
   {
-    "name": "Maroongold",
+    "label": "Maroongold",
     "value": "maroongold"
   },
   {
-    "name": "Yeblu",
+    "label": "Yeblu",
     "value": "yeblu"
   },
   {
-    "name": "Blueberry",
+    "label": "Blueberry",
     "value": "blueberry"
   },
   {
-    "name": "Slateorange",
+    "label": "Slateorange",
     "value": "slateorange"
   },
   {
-    "name": "Kacho Ga",
+    "label": "Kacho Ga",
     "value": "kacho_ga"
   },
   {
-    "name": "Outrun",
+    "label": "Outrun",
     "value": "outrun"
   }
 ]
