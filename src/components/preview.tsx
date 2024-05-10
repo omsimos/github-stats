@@ -191,7 +191,7 @@ const ImgPreview = ({
               {copyVariants.map(({ type, Icon }) => (
                 <TooltipProvider key={type}>
                   <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger asChild>
                       <Button
                         variant="outline"
                         size="icon"

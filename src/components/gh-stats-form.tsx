@@ -72,9 +72,7 @@ export function GhStatsForm() {
 
     setLoading(true);
 
-    toast("You submitted the following values:", {
-      description: JSON.stringify(data, null, 2),
-    });
+    toast.success("Generated GitHub Stats!");
 
     push(
       `/user/${username}?theme=${theme}&hide_border=${hideBorder}&count_private=${countPrivate}`
