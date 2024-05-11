@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import NextTopLoader from "nextjs-toploader";
 import Navbar from "@/components/navbar";
 import "./globals.css";
+import { CSPostHogProvider } from "./provider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.github-stats.omsimos.com"),
@@ -34,14 +35,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.className} ${GeistMono.variable}`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
-          <Toaster />
-          <NextTopLoader />
-          {children}
-        </ThemeProvider>
-      </body>
+      <CSPostHogProvider>
+        <body className={`${GeistSans.className} ${GeistMono.variable}`}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Navbar />
+            <Toaster />
+            <NextTopLoader />
+            {children}
+          </ThemeProvider>
+        </body>
+      </CSPostHogProvider>
     </html>
   );
 }
