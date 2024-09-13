@@ -1,19 +1,32 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
 import NextTopLoader from "nextjs-toploader";
+
 import Navbar from "@/components/navbar";
-import "./globals.css";
 import { CSPostHogProvider } from "./provider";
+import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.github-stats.omsimos.com"),
+  metadataBase: new URL("https://github-stats.omsimos.com/"),
   title: "GitHub Stats Generator | Omsimos",
   description:
     "Make your special repository feel special! Generate GitHub README stats with ease! Generate your stats, streaks, & top languages with 40+ themes to choose from! ",
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
     title: "GitHub Stats Generator — Omsimos",
@@ -25,6 +38,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title: "GitHub Stats Generator — Omsimos",
+    description:
+      "Make your special repository feel special! Generate GitHub README stats with ease! Generate your stats, streaks, & top languages with 40+ themes to choose from!",
+  },
+  alternates: {
+    canonical: "https://github-stats.omsimos.com/",
   },
 };
 
@@ -38,9 +57,9 @@ export default function RootLayout({
       <CSPostHogProvider>
         <body className={`${GeistSans.className} ${GeistMono.variable}`}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Navbar />
             <Toaster />
             <NextTopLoader />
+            <Navbar />
             {children}
           </ThemeProvider>
         </body>
