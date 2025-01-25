@@ -9,7 +9,7 @@ This website makes it easier for you to generate beautiful stats for your GitHub
 ## APIs Used
 
 - [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
-- [DenverCoder1/github-readme-streak-stats](https://github.com/DenverCoder1/github-readme-streak-stats)
+- [DenverCoder1/github-readme-streak-stats](https://streak-stats.demolab.com)
 
 ## How to Use
 
@@ -22,7 +22,7 @@ This website makes it easier for you to generate beautiful stats for your GitHub
 ## Stats Available
 
 <img width=400 src='https://github-readme-stats.vercel.app/api?username=joshxfi&theme=vue-dark&show_icons=true&hide_border=true&count_private=true' />
-<img width=400 src='https://github-readme-streak-stats.herokuapp.com/?user=joshxfi&theme=vue-dark&hide_border=true' />
+<img width=400 src='https://streak-stats.demolab.com?user=joshxfi&theme=vue-dark&hide_border=true' />
 <img width=400 src='https://github-readme-stats.vercel.app/api/top-langs/?username=joshxfi&theme=vue-dark&show_icons=true&hide_border=true&layout=compact' />
 
 ## License

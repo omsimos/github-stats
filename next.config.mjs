@@ -9,7 +9,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "github-readme-streak-stats.herokuapp.com",
+        hostname: "streak-stats.demolab.com",
       },
     ],
   },
