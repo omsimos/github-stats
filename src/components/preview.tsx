@@ -203,7 +203,7 @@ const ImgPreview = ({
                         <Button
                           variant="outline"
                           size="icon"
-                          className="[&>*]:h-5"
+                          className="*:h-5"
                           onClick={() => copyToClipboard(type)}
                         >
                           <Icon />
@@ -219,7 +219,7 @@ const ImgPreview = ({
                 asChild
                 variant="outline"
                 size="icon"
-                className="[&>*]:h-5"
+                className="*:h-5"
               >
                 <Link href="/">
                   <Icons.back className="h-5" />
