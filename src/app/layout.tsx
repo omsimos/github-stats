@@ -4,7 +4,6 @@ import { GeistMono } from "geist/font/mono";
 import NextTopLoader from "nextjs-toploader";
 
 import Navbar from "@/components/navbar";
-import { CSPostHogProvider } from "./provider";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -53,17 +52,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <CSPostHogProvider>
-        <body className={`${GeistSans.className} ${GeistMono.variable}`}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Toaster />
-            <NextTopLoader />
-            <Navbar />
-            {children}
-          </ThemeProvider>
-        </body>
-      </CSPostHogProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${GeistSans.className} ${GeistMono.variable}`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Toaster />
+          <NextTopLoader />
+          <Navbar />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
