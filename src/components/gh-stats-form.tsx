@@ -13,6 +13,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 
 import {
@@ -94,7 +95,7 @@ export function GhStatsForm() {
                 <FormControl>
                   <Input placeholder="omsimos" {...field} />
                 </FormControl>
-                {/* <FormMessage /> */}
+                <FormMessage className="sr-only" />
               </FormItem>
             )}
           />
@@ -156,7 +157,7 @@ export function GhStatsForm() {
                     </Command>
                   </PopoverContent>
                 </Popover>
-                {/* <FormMessage /> */}
+                <FormMessage className="sr-only" />
               </FormItem>
             )}
           />
@@ -182,11 +183,11 @@ export function GhStatsForm() {
                           <Switch
                             checked={field.value}
                             onCheckedChange={field.onChange}
-                            id="privCommits"
+                            id="hide-border-toggle"
                           />
                         </FormControl>
                       </FormItem>
-                      <Label htmlFor="priv-commits" className="mb-1">
+                      <Label htmlFor="hide-border-toggle" className="mb-1">
                         Hide Card Border
                       </Label>
                     </div>
@@ -203,11 +204,11 @@ export function GhStatsForm() {
                           <Switch
                             checked={field.value}
                             onCheckedChange={field.onChange}
-                            id="privCommits"
+                            id="count-private-toggle"
                           />
                         </FormControl>
                       </FormItem>
-                      <Label htmlFor="priv-commits" className="mb-1">
+                      <Label htmlFor="count-private-toggle" className="mb-1">
                         Count Private Commits
                       </Label>
                     </div>

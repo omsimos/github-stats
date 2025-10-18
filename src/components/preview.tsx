@@ -127,19 +127,26 @@ const ImgPreview = ({
     },
   ];
 
-  const copyToClipboard = (type: string) => {
-    if (username) {
-      let copiedText = "";
+  const copyToClipboard = async (type: string) => {
+    if (!username) {
+      return;
+    }
 
-      if (type === "markdown") {
-        copiedText = `![GitHub Stats](${imgSrc})`;
-      } else if (type === "url") {
-        copiedText = imgSrc;
-      } else if (type === "code") {
-        copiedText = `<img src="${imgSrc}" alt="${username}'s GitHub Stats" />`;
-      }
-      navigator.clipboard.writeText(copiedText);
+    let copiedText = "";
+
+    if (type === "markdown") {
+      copiedText = `![GitHub Stats](${imgSrc})`;
+    } else if (type === "url") {
+      copiedText = imgSrc;
+    } else if (type === "code") {
+      copiedText = `<img src="${imgSrc}" alt="${username}'s GitHub Stats" />`;
+    }
+
+    try {
+      await navigator.clipboard.writeText(copiedText);
       toast.success(`Copied to Clipboard as ${type}.`);
+    } catch {
+      toast.error("Copy failed. Please try again.");
     }
   };
 
@@ -163,7 +170,6 @@ const ImgPreview = ({
               className="w-full output"
               src={imgSrc}
               alt={alt}
-              priority
               onLoadStart={() => setImgLoad(true)}
               onLoad={() => setImgLoad(false)}
             />
@@ -186,7 +192,8 @@ const ImgPreview = ({
               className="w-full output cursor-pointer"
               src={imgSrc}
               alt={alt}
-              priority
+              priority={value === "stats"}
+              loading={value === "stats" ? "eager" : "lazy"}
               onLoadStart={() => setImgLoad(true)}
               onLoad={() => setImgLoad(false)}
               onClick={() => setOpenDialog(value)}
