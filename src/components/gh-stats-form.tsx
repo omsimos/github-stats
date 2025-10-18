@@ -40,12 +40,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-  theme: z.string({
-    required_error: "Please select a theme.",
-  }),
+  username: z.string().min(2, { message: "Username must be at least 2 characters." }),
+  theme: z.string().min(1, { message: "Please select a theme." }),
   hideBorder: z.boolean(),
   countPrivate: z.boolean(),
 });
