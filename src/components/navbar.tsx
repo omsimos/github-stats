@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { SVGProps } from "react";
-
-import { Button } from "./ui/button";
+import type { SVGProps } from "react";
 import { ToggleTheme } from "./toggle-theme";
+import { Button } from "./ui/button";
 
 export function GithubIcon(props: SVGProps<SVGSVGElement>) {
   return (

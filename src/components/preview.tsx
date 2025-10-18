@@ -1,17 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import { useTheme } from "next-themes";
-import { toast } from "sonner";
 import Image from "next/image";
 import Link from "next/link";
-
-import { Icons } from "./icons";
-import { Button } from "./ui/button";
-import { Dialog, DialogContent } from "./ui/dialog";
-import { useGithubStats } from "@/hooks/use-github-stats";
 import { useParams, useSearchParams } from "next/navigation";
-import { SkeletonCard } from "./skeleton-card";
+import { useTheme } from "next-themes";
+import type React from "react";
+import { useState } from "react";
+import { toast } from "sonner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Tooltip,
@@ -19,6 +14,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useGithubStats } from "@/hooks/use-github-stats";
+import { Icons } from "./icons";
+import { SkeletonCard } from "./skeleton-card";
+import { Button } from "./ui/button";
+import { Dialog, DialogContent } from "./ui/dialog";
 
 export const Preview = () => {
   const { theme: currentTheme } = useTheme();
@@ -222,12 +222,7 @@ const ImgPreview = ({
                 ))}
               </div>
 
-              <Button
-                asChild
-                variant="outline"
-                size="icon"
-                className="*:h-5"
-              >
+              <Button asChild variant="outline" size="icon" className="*:h-5">
                 <Link href="/">
                   <Icons.back className="h-5" />
                 </Link>
