@@ -1,25 +1,13 @@
 "use client";
 
-import { z } from "zod";
-import { toast } from "sonner";
-import { cn } from "@/lib/utils";
-import themes from "@/themes.json";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-} from "@/components/ui/form";
-
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Check, ChevronsUpDown } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
 
 import {
   Command,
@@ -29,23 +17,31 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Switch } from "@/components/ui/switch";
+import { cn } from "@/lib/utils";
+import themes from "@/themes.json";
 import { Icons } from "./icons";
 import { Label } from "./ui/label";
-import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
-import { Button } from "@/components/ui/button";
-import { Check, ChevronsUpDown } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-  theme: z.string({
-    required_error: "Please select a theme.",
-  }),
+  username: z
+    .string()
+    .min(2, { message: "Username must be at least 2 characters." }),
+  theme: z.string().min(1, { message: "Please select a theme." }),
   hideBorder: z.boolean(),
   countPrivate: z.boolean(),
 });
@@ -75,7 +71,7 @@ export function GhStatsForm() {
     toast.success("Generated GitHub Stats!");
 
     push(
-      `/user/${username}?theme=${theme}&hide_border=${hideBorder}&count_private=${countPrivate}`
+      `/user/${username}?theme=${theme}&hide_border=${hideBorder}&count_private=${countPrivate}`,
     );
   }
 
@@ -98,7 +94,7 @@ export function GhStatsForm() {
                 <FormControl>
                   <Input placeholder="omsimos" {...field} />
                 </FormControl>
-                {/* <FormMessage /> */}
+                <FormMessage className="sr-only" />
               </FormItem>
             )}
           />
@@ -118,7 +114,7 @@ export function GhStatsForm() {
                           "w-full justify-between",
                           !field.value || field.value === "default"
                             ? "text-muted-foreground"
-                            : ""
+                            : "",
                         )}
                       >
                         {field.value
@@ -149,7 +145,7 @@ export function GhStatsForm() {
                                   "mr-2 h-4 w-4",
                                   theme.value === field.value
                                     ? "opacity-100"
-                                    : "opacity-0"
+                                    : "opacity-0",
                                 )}
                               />
                               {theme.label}
@@ -160,7 +156,7 @@ export function GhStatsForm() {
                     </Command>
                   </PopoverContent>
                 </Popover>
-                {/* <FormMessage /> */}
+                <FormMessage className="sr-only" />
               </FormItem>
             )}
           />
@@ -186,11 +182,11 @@ export function GhStatsForm() {
                           <Switch
                             checked={field.value}
                             onCheckedChange={field.onChange}
-                            id="privCommits"
+                            id="hide-border-toggle"
                           />
                         </FormControl>
                       </FormItem>
-                      <Label htmlFor="priv-commits" className="mb-1">
+                      <Label htmlFor="hide-border-toggle" className="mb-1">
                         Hide Card Border
                       </Label>
                     </div>
@@ -207,11 +203,11 @@ export function GhStatsForm() {
                           <Switch
                             checked={field.value}
                             onCheckedChange={field.onChange}
-                            id="privCommits"
+                            id="count-private-toggle"
                           />
                         </FormControl>
                       </FormItem>
-                      <Label htmlFor="priv-commits" className="mb-1">
+                      <Label htmlFor="count-private-toggle" className="mb-1">
                         Count Private Commits
                       </Label>
                     </div>

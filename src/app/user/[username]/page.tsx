@@ -1,7 +1,9 @@
 import Footer from "@/components/footer";
 import { Preview } from "@/components/preview";
 
-export default async function Home(props: { params: Promise<{ username: string }> }) {
+export default async function Home(props: {
+  params: Promise<{ username: string }>;
+}) {
   const params = await props.params;
   return (
     <main className="container flex flex-col justify-between min-h-screen pt-36">

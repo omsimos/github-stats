@@ -11,9 +11,14 @@ export const useGithubStats = (data: Stats) => {
   const { theme, username, countPrivate, hideBorder } = data;
 
   return useMemo(() => {
-    const stats = `https://github-readme-stats.vercel.app/api?username=${username}&theme=${theme}&show_icons=true&hide_border=${hideBorder}&count_private=${countPrivate}`;
-    const topLanguages = `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&theme=${theme}&show_icons=true&hide_border=${hideBorder}&layout=compact`;
-    const streak = `https://streak-stats.demolab.com?user=${username}&theme=${theme}&hide_border=${hideBorder}`;
+    const encodedUsername = encodeURIComponent(username ?? "");
+    const encodedTheme = encodeURIComponent(theme ?? "");
+    const encodedHideBorder = encodeURIComponent(hideBorder ?? "");
+    const encodedCountPrivate = encodeURIComponent(countPrivate ?? "");
+
+    const stats = `https://github-readme-stats.vercel.app/api?username=${encodedUsername}&theme=${encodedTheme}&show_icons=true&hide_border=${encodedHideBorder}&count_private=${encodedCountPrivate}`;
+    const topLanguages = `https://github-readme-stats.vercel.app/api/top-langs/?username=${encodedUsername}&theme=${encodedTheme}&show_icons=true&hide_border=${encodedHideBorder}&layout=compact`;
+    const streak = `https://streak-stats.demolab.com?user=${encodedUsername}&theme=${encodedTheme}&hide_border=${encodedHideBorder}`;
 
     return { stats, topLanguages, streak };
   }, [username, theme, hideBorder, countPrivate]);
